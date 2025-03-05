@@ -30,6 +30,7 @@ jobs:
               FIX_MARKDOWN: true
               FIX_MARKDOWN_PRETTIER: true
               MARKDOWN_CONFIG_FILE: .markdownlint.yaml
+              MARKDOWN_LINTER_RULES: .markdownlint.yaml
               VALIDATE_NATURAL_LANGUAGE: false
 
           - name: Commit and push linting fixes
