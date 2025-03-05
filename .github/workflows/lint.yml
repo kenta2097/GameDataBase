@@ -33,4 +33,4 @@ jobs:
               enable-cache: true
     
           - name: "Run pre-commit"
-            run: uvx pre-commit run --all-files --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.event.pull_request.head.sha }}
+            run: uvx pre-commit run --all-files -v --from-ref ${{ github.event.pull_request.base.sha }} --to-ref ${{ github.event.pull_request.head.sha }}
