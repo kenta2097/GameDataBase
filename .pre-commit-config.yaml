@@ -14,4 +14,3 @@ repos:
     rev: v0.8.3
     hooks:
       - id: clevercsv-standardize
-        args: ['--verbose']  # Puedes agregar argumentos adicionales si es necesario
