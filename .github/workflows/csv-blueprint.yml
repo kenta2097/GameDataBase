@@ -15,13 +15,21 @@ jobs:
             with:
               fetch-depth: 0
 
+          - name: Cache Docker layers
+            uses: actions/cache@v2
+            with:
+              path: /tmp/.docker-cache
+              key: ${{ runner.os }}-docker-${{ github.sha }}
+              restore-keys: |
+                ${{ runner.os }}-docker-
+
           - name: "csvlinter lint"
             uses: kcheriyath/csvlinter@V0.6.0
             with:
-#              file_list: "space delimited list of files including path"
               find_pattern: "*.csv"
-#              find_path: "./data"
               fail_on_error: "true"
-#              extra_params: "--lazyquotes"              
+            env:
+              DOCKER_BUILDKIT: 1
+              DOCKER_CACHE: /tmp/.docker-cache
 
-          
+
