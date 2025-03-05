@@ -1,8 +1,16 @@
-#default_language_version:
-#  python: python3.11 # Keep in sync with pyproject.toml.
-
 repos:
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.43.0
+    hooks:
+      - id: markdownlint-fix
+        exclude: |
+          (?x)^(
+            .github/PULL_REQUEST_TEMPLATE.md
+            | reusable-workflows/.github/PULL_REQUEST_TEMPLATE.md
+            | reusable-workflows/README.md
+          )$
+
   - repo: https://github.com/alan-turing-institute/CleverCSV-pre-commit
-    rev: v0.8.2      # or any later version
+    rev: v0.8.3      # or any later version
     hooks:
       - id: clevercsv-standardize
