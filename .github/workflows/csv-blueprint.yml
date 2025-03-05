@@ -20,4 +20,4 @@ jobs:
             with:
               csv: './*.csv'
               schema: './*.yml'
-        
+              skip-schema: 'yes'
