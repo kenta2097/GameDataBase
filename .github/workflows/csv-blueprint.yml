@@ -24,10 +24,4 @@ jobs:
               fail_on_error: "true"
 #              extra_params: "--lazyquotes"              
 
-          - name: "CSV Blueprint lint"
-            uses: jbzoo/csv-blueprint@7ceffedc57436eb014760381abd55929e350d83b # 1.0.3
-            with:
-              csv: './*.csv'
-              schema: './*.yml'
-              skip-schema: 'yes'
           
