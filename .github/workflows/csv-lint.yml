@@ -28,6 +28,8 @@ jobs:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               FIX_YAML_PRETTIER: true
               FIX_MARKDOWN: true
+              FIX_MARKDOWN_PRETTIER: true
+              MARKDOWN_CONFIG_FILE: .markdownlint.yaml
               VALIDATE_NATURAL_LANGUAGE: false
 
           - name: Commit and push linting fixes
