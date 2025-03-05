@@ -4,6 +4,9 @@ on:
   pull_request:
     types: [ opened, reopened, synchronize, edited ]
 
+permissions:
+  contents: read
+
 jobs:
     lint:
         runs-on: "ubuntu-latest"
@@ -21,5 +24,5 @@ jobs:
               VALIDATE_CSV: true
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          - name: "csvlinter lint"
-            uses: kcheriyath/csvlinter@776f3c1d25d37a339d3bcaea683efa1d0fee1576 # V0.6.0
+#          - name: "csvlinter lint"
+#            uses: kcheriyath/csvlinter@776f3c1d25d37a339d3bcaea683efa1d0fee1576 # V0.6.0
