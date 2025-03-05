@@ -16,9 +16,9 @@ jobs:
               fetch-depth: 0
 
           - name: Run Super-Linter
-             uses: github/super-linter@v4
-             env:
-               VALIDATE_CSV: true
+            uses: github/super-linter@v4
+            env:
+              VALIDATE_CSV: true
 
           - name: "csvlinter lint"
             uses: kcheriyath/csvlinter@776f3c1d25d37a339d3bcaea683efa1d0fee1576 # V0.6.0
