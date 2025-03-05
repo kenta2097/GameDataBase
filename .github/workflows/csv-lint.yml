@@ -16,7 +16,7 @@ jobs:
               fetch-depth: 0
 
           - name: Run Super-Linter
-            uses: github/super-linter@v4
+            uses: github/super-linter@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 # v7.3.0
             env:
               VALIDATE_CSV: true
 
