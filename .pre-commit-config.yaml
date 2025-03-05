@@ -5,7 +5,7 @@ repos:
       - id: markdownlint-fix
 
   - repo: https://github.com/jbzoo/csv-blueprint
-    rev: master
+    rev: 1.0.3
     hooks:
       - id: csv-blueprint
         args: ['--csv', './tests/**/*.csv', '--schema', './tests/**/*.yml', '--report', 'table']
