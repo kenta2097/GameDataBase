@@ -18,4 +18,5 @@ jobs:
           - name: "CSV Blueprint lint"
             uses: jbzoo/csv-blueprint@7ceffedc57436eb014760381abd55929e350d83b # 1.0.3
             with:
-              python-version: "3.11"
+              csv: './*.csv'
+              
