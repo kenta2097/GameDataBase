@@ -16,30 +16,15 @@ jobs:
               fetch-depth: 0
 
           - name: Cache Docker layers
-            uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
+            uses: actions/cache@vd4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
             with:
               path: /tmp/.docker-cache
               key: ${{ runner.os }}-docker-${{ github.sha }}
               restore-keys: |
                 ${{ runner.os }}-docker-
 
-          - name: Load Docker cache
-            if: steps.cache.outputs.cache-hit != 'true'
-            run: |
-              mkdir -p /tmp/.docker-cache
-              docker load -i /tmp/.docker-cache/csvlinter.tar || true
-
           - name: "csvlinter lint"
-            uses: kcheriyath/csvlinter@776f3c1d25d37a339d3bcaea683efa1d0fee1576 # V0.6.0
-            with:
-              find_pattern: "*.csv"
-              fail_on_error: "true"
-            env:
-              DOCKER_BUILDKIT: 1
-
-          - name: Save Docker cache
-            if: always()
-            run: |
-              docker save -o /tmp/.docker-cache/csvlinter.tar kcheriyath/csvlinter:V0.6.0
+#            uses: kcheriyath/csvlinter@776f3c1d25d37a339d3bcaea683efa1d0fee1576 # V0.6.0
+            uses: kcheriyath/csvlinter@main
 
 
