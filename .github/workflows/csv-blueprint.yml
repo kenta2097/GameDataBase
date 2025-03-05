@@ -19,8 +19,9 @@ jobs:
             uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
             with:
               path: /tmp/.docker-cache
-              key: ${{ runner.os }}-docker-${{ github.sha }}
+              key: ${{ runner.os }}-docker-${{ github.ref }}-${{ github.sha }}
               restore-keys: |
+                ${{ runner.os }}-docker-${{ github.ref }}-
                 ${{ runner.os }}-docker-
 
           - name: "csvlinter lint"
