@@ -16,7 +16,7 @@ jobs:
               fetch-depth: 0
 
           - name: Run CSVLint Action
-            uses: csvlint/csvlint-action@v1
+            uses: csvlint/csvlint-action@v0.3.0 # v0.3.0
             with:
               path: .
               pattern: '*.csv'
