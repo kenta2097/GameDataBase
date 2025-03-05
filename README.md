@@ -19,7 +19,8 @@ These lists are basically table files made of metadata fields separated by comma
 - SHA256 hash
 - SHA512 hash
 
-# Guide for tags
+## Guide for tags
+
 GameDataBase uses a simple tag taxonomy to classify games in as many ways as possible. These tags main purpose is to improve sorting and searching. Of course this list will be updated as new ones emerge from darkness.
 
 **Stand alone tags (#)**
@@ -347,7 +348,7 @@ Several values and subvalues can be added for every main attribute. So, if we ha
 **:toshokan** (SEGA Game Toshokan / ゲーム図書館)
 **:segachannel** (SEGA Channel)
 **:xband** (Catapult XB∀ND)
-**:meganet* (Tec Toy MegaNet)
+**:meganet** (Tec Toy MegaNet)
 **:teleplay** (Baton Teleplay System)
 **:linkup** (Technopop Link-up Cable)
 **:justifier** (Konami The Justifier / サ・ジャスティファイアー)
