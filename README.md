@@ -25,7 +25,7 @@ GameDataBase project aims to provide the most detailed information about every v
 
 GameDataBase uses a simple tag taxonomy to classify games in as many ways as possible. These tags main purpose is to improve sorting and searching. Of course this list will be updated as new ones emerge from darkness.
 
-**Stand Alone Tags**
+### Stand Alone Tags
 
 | Tag | Description |
 |-----|-------------|
@@ -45,17 +45,25 @@ GameDataBase uses a hierarchical tag system with up to three levels of depth:
 | 3 | > | Specific attribute | #genre:sports>wrestling |
 
 Multiple categories and attributes can be combined. For example:
-```
+
+```ts
 #genre:sports>wrestling #players:2 #players:vs
 ```
+
 This means: Wrestling sports game, 2 players, versus mode
 
 Tag combinations examples:
-```
-#genre:adventure:shooting    // Adventure game with shooting elements
+
+```ts
+#genre:action>motorcycle              // Action game with motorcycle theme
+#genre:sports>soccer #players:2       // Soccer game for 2 players
+#genre:board>chess #input:joystick>4  // Chess game with 4-way joystick control  
+#genre:shmup>v #tate                  // Vertical shoot'em up in TATE mode
+#genre:puzzle>drop #players:vs        // Drop puzzle game with versus mode
+#genre:adventure:shooting             // Adventure game with shooting elements
 #input:joystick>4 #input:buttons>2    // 4-way joystick and 2 buttons
-#players:2 #players:coop    // 2 players cooperative
-#based:movie #lang:en    // English game based on a movie
+#players:2 #players:coop              // 2 players cooperative
+#based:movie #lang:en                 // English game based on a movie
 ```
 
 The `>` level only applies to its immediate `:` subcategory.
@@ -109,7 +117,6 @@ The `>` level only applies to its immediate `:` subcategory.
 | #unlicensed:hack | Hacked game |
 | #unlicensed:translation | Fan translation |
 | #unlicensed:aftermarket | Made after original market cycle |
-
 
 ## Genre Tags
 
@@ -427,7 +434,7 @@ The `>` level only applies to its immediate `:` subcategory.
 | PC Engine | #pce:pcsg | PC SuperGrafx |
 | NeoGeo Pocket | #ngp:mono<br>#ngp:color | Monochrome<br>Color |
 
-### Game Status Tags 
+### Game Status Tags
 
 | Tag | Description | Subtypes |
 |-----|-------------|----------|
