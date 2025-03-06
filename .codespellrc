@@ -8,8 +8,8 @@ count =
 # Quiet level (3 = maximum quiet)
 quiet-level = 3
 
-# Custom dictionary for codespell
-dictionary = codespell_dictionary.txt
+# Custom dictionary file for codespell
+#dictionary = codespell_dictionary.txt
 
-# List of words to ignore (currently empty)
-#ignore-words-list = foo,-bar
+# File with a list of words to ignore
+ignore-words = codespell_ignore_words.txt
