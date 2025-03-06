@@ -25,7 +25,7 @@ jobs:
         env:
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BRANCH: ${{ github.event.pull_request.head.ref }}
+#          DEFAULT_BRANCH: ${{ github.event.pull_request.head.ref }}
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN: true
           FIX_MARKDOWN_PRETTIER: true
