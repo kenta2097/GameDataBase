@@ -471,6 +471,14 @@ The `>` level only applies to its immediate `:` subcategory.
 
 ## Franchise Tags
 
+These tags (`$`) are designed for searching purposes. They are internal (invisible) tags that provide additional information we can unlock when searching.
+
+Commercial franchise tags help find games related to famous franchises and characters. For example, searching "alien" might return unrelated games like _Alien Soldier_, _Alien Storm_ or _Alien Syndrome_. However, using the `$alien` tag unlocks a "did you mean" feature that helps find actual Alien franchise games.
+
+These tags also help find games featuring famous characters. A regular search for "dracula" would only find games with "Dracula" in the title, missing series like _Castlevania_ or _Master of Darkness_. The `$dracula` tag solves this limitation.
+
+More tags will be added as new interesting franchises are documented. For now, here are the available tags:
+
 | Tag | Description |
 |-----|-------------|
 | `$alien` | Alien franchise |
@@ -502,6 +510,8 @@ The `>` level only applies to its immediate `:` subcategory.
 | `$xmen` | X-Men |
 
 ## Keyword Search Tags
+
+These tags are just for searching purposes based on keywords. If we look for games based on a movie or a manga, this kind of tags allow you to find more easily if implemented. Values on the right are like synonyms. Infinite possibilities. We can add tags like `ninja`, `cute`, `gore` or even `rockandroll`. But for now, there's only these:
 
 | Tag | Description |
 |-----|-------------|
