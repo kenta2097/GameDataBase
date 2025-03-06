@@ -1,7 +1,14 @@
-[codespell]
-#   skip = *.po,*.ts,./src/3rdParty,./src/Test
+# Files and directories to skip
+#skip = *.po,*.ts,./src/3rdParty,./src/Test 
+
+# Error count (currently empty)
 count =
+
+# Quiet level (3 = maximum quiet)
 quiet-level = 3
 
+# Custom dictionary for codespell
 dictionary = codespell_dictionary.txt
-#   ignore-words-list = 
+
+# List of words to ignore (currently empty)
+#ignore-words-list =
