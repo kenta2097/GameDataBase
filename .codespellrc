@@ -1,3 +1,4 @@
+[codespell]
 # Files and directories to skip
 #skip = *.po,*.ts,./src/3rdParty,./src/Test 
 
@@ -11,4 +12,4 @@ quiet-level = 3
 dictionary = codespell_dictionary.txt
 
 # List of words to ignore (currently empty)
-#ignore-words-list =
+#ignore-words-list = foo,-bar
