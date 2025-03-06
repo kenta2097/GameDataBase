@@ -38,9 +38,8 @@ jobs:
         with:
           branch: ${{ github.head_ref }}
           commit_message: "chore(super-linter): fix linters"
-          committer_name: super-linter
-          commit_user_email: super-linter@super-linter.dev
-          commit_author: "super-linter <super-linter@super-linter.dev>"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "super-linter@super-linter.dev"
+          commit_author: "Super Linter <super-linter@super-linter.dev>"
+          token: ${{ secrets.GITHUB_TOKEN }}  
 
