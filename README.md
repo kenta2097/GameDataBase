@@ -29,7 +29,7 @@ This kind of tags defines useful uncommon attributes we can find in multiple gam
 **#mameparent** (MAME parent file)
 **#bios** (BIOS game)
 **#promo** (Promotion product)
-**#qsound** (QSound)
+**#qsound* (QSound)
 
 **Group tags (#)+(:)+(>)**
 This kind of tags uses subcategories to organize more complex things. There are three levels. The first (#) is for the main attribute, the second (:) is its value, and the third (>) is a subvalue. This subvalue is only specific information about their most inmediate (:) value.
