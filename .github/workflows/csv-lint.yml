@@ -38,6 +38,7 @@ jobs:
 #          MARKDOWN_LINTER_RULES: /github/workspace/.markdownlint.yaml
           YAML_CONFIG_FILE: .yaml-lint.yml
           VALIDATE_NATURAL_LANGUAGE: false
+          IGNORE_GITIGNORED_FILES: true
 
       - name: Commit and push linting fixes
         if: always()
@@ -46,6 +47,6 @@ jobs:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "chore(super-linter): fix linters"
 #          commit_user_name: "github-actions[bot]"
-          commit_user_email: "super-linter@@users.noreply.github.com"
-          commit_author: "Super Linter <super-linter@@users.noreply.github.com>"
+          commit_user_email: "super-linter@users.noreply.github.com"
+          commit_author: "Super Linter <super-linter@users.noreply.github.com>"
 
