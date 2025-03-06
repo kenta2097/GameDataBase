@@ -39,7 +39,7 @@ jobs:
         with:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "chore(super-linter): fix linters"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "super-linter@super-linter.dev"
-          commit_author: "Super Linter <super-linter@super-linter.dev>"
+#          commit_user_name: "github-actions[bot]"
+#          commit_user_email: "super-linter@super-linter.dev"
+#          commit_author: "Super Linter <super-linter@super-linter.dev>"
 
