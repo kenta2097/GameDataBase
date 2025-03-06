@@ -9,7 +9,7 @@ count =
 quiet-level = 3
 
 # Custom dictionary file for codespell
-#dictionary = codespell_dictionary.txt
+#dictionary = .codespell_dictionary
 
 # File with a list of words to ignore
-ignore-words = codespell_ignore_words.txt
+ignore-words = .codespell_ignore_words

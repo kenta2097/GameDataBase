@@ -4,237 +4,331 @@
 
 GameDataBase project aims to provide the most detailed information about every videogame (console, computer and arcade) for sorting purposes. Goal is to unify in one place all available useful information for emulation projects like MiSTer, to make possible more efficient and specific searchs. GameDataBase will be published in different files (by platform).
 
-These lists are basically table files made of metadata fields separated by commas (CSV) as following:
+## CSV Fields
 
-- Screen title @ Exact (title in original character set, if applicable. This is particulary useful for Japanese titles usually transcribed in roman characters. Purist, curious and of course Japanese people will enjoy this)
-- Cover Title @ Exact (if applicable)
-- ID (to identify multiple versions of the same game)
-- Date in format YYYY adding MM and DD if known (YYYY-MM-DD)
-- Developer
-- Publisher
-- Tags with additional information about the game
-- MAME filename
-- MD5 hash
-- SHA1 hash
-- SHA256 hash
-- SHA512 hash
+| Field | Description |
+|-------|-------------|
+| Screen title @ Exact | Title in original character set |
+| Cover Title @ Exact | If applicable |
+| ID | To identify multiple versions |
+| Date | Format YYYY-MM-DD |
+| Developer | Game developer |
+| Publisher | Game publisher |
+| Tags | Additional information |
+| MAME filename | MAME ROM name |
+| MD5 hash | MD5 checksum |
+| SHA1 hash | SHA1 checksum |
+| SHA256 hash | SHA256 checksum |
+| SHA512 hash | SHA512 checksum |
 
 ## Guide for tags
 
 GameDataBase uses a simple tag taxonomy to classify games in as many ways as possible. These tags main purpose is to improve sorting and searching. Of course this list will be updated as new ones emerge from darkness.
 
-**Stand alone tags (#)**
-This kind of tags defines useful uncommon attributes we can find in multiple games of multiple systems. They are intended to be visible. Let's imagine the following tags inside little color labels before (or after) the line of their respective titles in a list. These are:
+**Stand Alone Tags**
 
-**#mameparent** (MAME parent file)
-**#bios** (BIOS game)
-**#promo** (Promotion product)
-**#qsound* (QSound)
+| Tag | Description |
+|-----|-------------|
+| #mameparent | MAME parent file |
+| #bios | BIOS game |
+| #promo | Promotion product |
+| #qsound | QSound |
 
 **Group tags (#)+(:)+(>)**
 This kind of tags uses subcategories to organize more complex things. There are three levels. The first (#) is for the main attribute, the second (:) is its value, and the third (>) is a subvalue. This subvalue is only specific information about their most inmediate (:) value.
 
 Several values and subvalues can be added for every main attribute. So, if we have **#genre:sports>wrestling:fighting**, we have two genre (_sports_ and _fighting_) and one subgenre only for the _sports_ tag (_wrestling_). There are:
 
-**#input** (Input system)
-**:joystick** (Joystick)
-**:doublejoystick** (Double joystick)
-**:rotary** (Rotary joystick)
-**:stick** (Stick)
-**:twinstick** (Twin Stick)
-**:trackball** (Trackball)
-**:paddle** (Paddle)
-**:spinner** (Spinner)
-**:wheel** (Wheel)
-**:dial** (Dial)
-**:lightgun** (Lightgun)
-**:optical** (Optical device)
-**:puncher** (Puncher)
-**:motion** (Motion detection)
-**:buttons** (In-game buttons)
-**:keys** (Keyboard keys)
-**:pedals** (Pedals)
+## Input System Tags
 
-**#input:joystick** / **#input:doublejoystick**
-**\>2h** (2-way horizontal)
-**\>2v** (2-way vertical)
-**\>3** (3-way)
-**\>4** (4-way)
-**\>8** (8-way)
+| Tag | Description | Subvalues |
+|-----|-------------|-----------|
+| #input:joystick | Joystick | >2h (2-way horizontal)<br>>2v (2-way vertical)<br>>3 (3-way)<br>>4 (4-way)<br>>8 (8-way) |
+| #input:doublejoystick | Double joystick | Same as joystick |
+| #input:buttons | In-game buttons | >1 to >23<br>>pneumatic |
+| #input:keys | Keyboard keys | >1 to >23 |
+| #input:pedals | Pedals | >1 to >23 |
 
-**#input:buttons** = **#input:pedals** = **#input:keys**
-**\>1** (1)
-**\>2** (2)
-**\>3** (3)
-**\>4** (4)
-**\>6** (6)
-**\>11** (11)
-**\>12** (12)
-**\>19** (19)
-**\>23** (23)
-**\>pneumatic** (Pneumatic buttons)
+## Players Tags
 
-**#players** (Maximum number of players)
-**:1** (1 player)
-**:2** (2 players)
-**:3** (3 players)
-**:4** (4 players)
-**:6** (6 players)
-**:8** (8 players)
-**:10** (10 players)
-**:coop** (Cooperative)
-**:vs** (Versus)
-**:alt** (Alternating)
+| Tag | Description |
+|-----|-------------|
+| #players:1 | 1 player |
+| #players:2 | 2 players |
+| #players:3 | 3 players |
+| #players:4 | 4 players |
+| #players:6 | 6 players |
+| #players:8 | 8 players |
+| #players:10 | 10 players |
+| #players:coop | Cooperative |
+| #players:vs | Versus |
+| #players:alt | Alternating |
 
-**#tate** (Vertical screen)
-**:cw** (Clockwise)
-**:ccw** (Counter clockwise)
+## Screen Tags
 
-**#multigame** (Multigame)
-**:compilation** (Compilation)
+| Tag | Description |
+|-----|-------------|
+| #tate | Vertical screen |
+| #tate:cw | Vertical screen (clockwise) |
+| #tate:ccw | Vertical screen (counter clockwise) |
 
-**#unlicensed** (Unlicensed)
-**:bootleg** (Bootleg)
-**:hack** (Hack)
-**:translation** (Translation)
-**:aftermarket** (Aftermarket)
+## Game Collection Tags
 
-**#genre** (Genre)
-**:action** (Action)
-**:platformer** (Platformer)
-**:fighting** (Fighting)
-**:brawler** (Beat'em up)
-**:rpg** (RPG)
-**:sports** (Sports)
-**:shmup** (Shoot'em up)
-**:puzzle** (Puzzle)
-**:racing** (Racing)
-**:rhythm** (Rhythm)
-**:railshooter** (Rail shooter)
-**:blockbreaker** (Block breaker)
-**:maze** (Maze)
-**:adventure** (Adventure)
-**:pointandclick** (Point and click)
-**:shooting** (Shooting gallery)
-**:shooter** (Shooter)
-**:runandgun** (Run and gun)
-**:hackandslash** (Hack and slash)
-**:survivalhorror** (Survival Horror)
-**:dungeoncrawler** (Dungeon crawler)
-**:pinball** (Pinball)
-**:strategy** (Strategy)
-**:roguelite** (Roguelite)
-**:sim** (Simulation)
-**:flightsim** (Flight simulator)
-**:trainsim** (Train simulator)
-**:datesim** (Date simulator)
-**:lifesim** (Life simulator)
-**:farmsim** (Farm simulator)
-**:petsim** (Pet simulator)
-**:board** (Board game)
-**:quiz** (Quiz game)
-**:fishing** (Fishing)
-**:cooking** (Cooking)
-**:cardgame** (Card game)
-**:cards** (Classic cards)
-**:hanafuda** (Hanafuda)
-**:billiard** (Billiard)
-**:jackpot** (Jackpot)
-**:pachinko** (Pachinko)
-**:minigames** (Mini games)
-**:jankenpon** (Rock paper scissors)
-**:kiddieride** (Kiddie ride)
-**:bowling** (Bowling)
-**:darts** (Darts)
-**:mogurataiji** (Whac-A-Mole)
-**:visualnovel** (Visual novel)
-**:god** (God game)
-**:building** (Building)
-**:derby** (Derby horse ride)
-**:strip** (Strip)
-**:vending** (Vending machine)
-**:redemption** (Redemption)
-**:mechanical** (Mechanical)
-**:educational** (Educational)
-**:marketing** (Marketing)
-**:media** (Non-game media)
-**:drawing** (Drawing)
-**:karaoke** (Karaoke)
-**:application** (Application)
-**:test** (Test)
-**:sdk** (Software Development Kit)
-**:slideshow** (Picture slideshow)
-**:sound** (Only sound)
+| Tag | Description |
+|-----|-------------|
+| #multigame | Multiple games in one cartridge/disk |
+| #multigame:compilation | Official compilation of games |
 
-**#genre:sports**
-**\>soccer** (Soccer)
-**\>basketball** (Basketball)
-**\>baseball** (Baseball)
-**\>volleyball** (Volleyball)
-**\>rugby** (Rugby)
-**\>football** (American football)
-**\>dodgeball** (Dodgeball)
-**\>hockey** (Ice Hockey)
-**\>skiing** (Skiing)
-**\>skateboarding** (Skateboarding)
-**\>snowboarding** (Snowboarding)
-**\>tennis** (Tennis)
-**\>pingpong** (Ping Pong)
-**\>paddle** (Paddle)
-**\>squash** (Squash)
-**\>badminton** (Badminton)
-**\>cycling** (Cycling)
-**\>formula1** (Formula 1)
-**\>rally** (Rally)
-**\>nascar** (NASCAR)
-**\>motogp** (Moto GP)
-**\>motocross** (Motocross)
-**\>golf** (Golf)
-**\>cricket** (Cricket)
-**\>boxing** (Boxing)
-**\>kickboxing** (Kick Boxing)
-**\>wrestling** (Wrestling)
-**\>sumo** (Sumo)
-**\>karate** (Karate)
-**\>judo** (Judo)
-**\>kendo** (Kendo)
-**\>decathlon** (Decathlon)
-**\>archery** (Archery)
-**\>swimming** (Swimming)
-**\>rowing** (Rowing)
-**\>kayak** (Kayak)
+## License Tags
 
-**#genre:board**
-**\>chess** (Chess)
-**\>shougi** (Shōgi)
-**\>go** (Go)
-**\>mahjong** (Mahjong)
-**\>reversi** (Reversi)
-**\>othello** (Othello)
+| Tag | Description |
+|-----|-------------|
+| #unlicensed | Unlicensed game |
+| #unlicensed:bootleg | Bootleg/pirated game |
+| #unlicensed:hack | Hacked game |
+| #unlicensed:translation | Fan translation |
+| #unlicensed:aftermarket | Made after original market cycle |
 
-**#genre:rpg**
-**\>a** (Action RPG)
-**\>j** (JRPG)
-**\>s** (Strategy RPG)
 
-**#genre:shmup**
-**\>h** (Horizontal shoot'em up)
-**\>v** (Vertical shoot'em up)
-**\>i** (Isometric shoot'em up)
-**\>danmaku** (Bullet hell)
+## Genre Tags
 
-**#genre:puzzle**
-**\>drop** (Drop pieces puzzle)
+| Main Tag | Description | Subgenres | Subgenre Names |
+|----------|-------------|-----------|----------------|
+| #genre:action | Action | - | - |
+| #genre:adventure | Adventure | :pointandclick<br>:shooting<br>:shooter<br>:runandgun<br>:hackandslash<br>:survivalhorror<br>:dungeoncrawler | Point and click<br>Shooting gallery<br>Shooter<br>Run and gun<br>Hack and slash<br>Survival Horror<br>Dungeon crawler |
+| #genre:platformer | Platformer | - | - |
+| #genre:fighting | Fighting | - | - |
+| #genre:brawler | Beat'em up | - | - |
+| #genre:rpg | RPG | >a<br>>j<br>>s | Action RPG<br>JRPG<br>Strategy RPG |
+| #genre:sports | Sports | >soccer<br>>basketball<br>>baseball<br>>volleyball<br>>rugby<br>>football<br>>dodgeball<br>>hockey<br>>skiing<br>>skateboarding<br>>snowboarding<br>>tennis<br>>pingpong<br>>paddle<br>>squash<br>>badminton<br>>cycling<br>>formula1<br>>rally<br>>nascar<br>>motogp<br>>motocross<br>>golf<br>>cricket<br>>boxing<br>>kickboxing<br>>wrestling<br>>sumo<br>>karate<br>>judo<br>>kendo<br>>decathlon<br>>archery<br>>swimming<br>>rowing<br>>kayak | Soccer<br>Basketball<br>Baseball<br>Volleyball<br>Rugby<br>American football<br>Dodgeball<br>Ice Hockey<br>Skiing<br>Skateboarding<br>Snowboarding<br>Tennis<br>Ping Pong<br>Paddle<br>Squash<br>Badminton<br>Cycling<br>Formula 1<br>Rally<br>NASCAR<br>Moto GP<br>Motocross<br>Golf<br>Cricket<br>Boxing<br>Kick Boxing<br>Wrestling<br>Sumo<br>Karate<br>Judo<br>Kendo<br>Decathlon<br>Archery<br>Swimming<br>Rowing<br>Kayak |
+| #genre:shmup | Shoot'em up | >h<br>>v<br>>i<br>>danmaku | Horizontal<br>Vertical<br>Isometric<br>Bullet hell |
+| #genre:puzzle | Puzzle | >drop | Drop pieces puzzle |
+| #genre:racing | Racing | >combat | Combat racing |
+| #genre:rhythm | Rhythm | - | - |
+| #genre:shooter | Shooter | >3p | Third person |
+| #genre:board | Board game | >chess<br>>shougi<br>>go<br>>mahjong<br>>reversi<br>>othello | Chess<br>Shōgi<br>Go<br>Mahjong<br>Reversi<br>Othello |
+| #genre:sim | Simulation | :flightsim<br>:trainsim<br>:datesim<br>:lifesim<br>:farmsim<br>:petsim | Flight simulator<br>Train simulator<br>Date simulator<br>Life simulator<br>Farm simulator<br>Pet simulator |
+| #genre:arcade | Arcade | :pinball<br>:jackpot<br>:pachinko<br>:darts<br>:bowling<br>:kiddieride | Pinball<br>Jackpot<br>Pachinko<br>Darts<br>Bowling<br>Kiddie ride |
+| #genre:other | Other | :quiz<br>:fishing<br>:cooking<br>:cardgame<br>:cards<br>:hanafuda<br>:billiard<br>:minigames<br>:jankenpon<br>:mogurataiji<br>:visualnovel<br>:god<br>:building<br>:derby<br>:strip<br>:vending<br>:redemption<br>:mechanical<br>:educational<br>:marketing<br>:media<br>:drawing<br>:karaoke<br>:application<br>:test<br>:sdk<br>:slideshow<br>:sound | Quiz game<br>Fishing<br>Cooking<br>Card game<br>Classic cards<br>Hanafuda<br>Billiard<br>Mini games<br>Rock paper scissors<br>Whac-A-Mole<br>Visual novel<br>God game<br>Building<br>Derby horse ride<br>Strip<br>Vending machine<br>Redemption<br>Mechanical<br>Educational<br>Marketing<br>Non-game media<br>Drawing<br>Karaoke<br>Application<br>Test<br>Software Development Kit<br>Picture slideshow<br>Only sound |
 
-**#genre:racing**
-**\>combat** (Combat racing)
+## Language Tags
 
-**#genre:shooter**
-**\>3p** (Third person shooter)
+| Tag | Description |
+|-----|-------------|
+| #lang:ja | Japanese |
+| #lang:en | English |
+| #lang:es | Spanish |
+| #lang:fr | French |
+| #lang:pt | Portuguese |
+| #lang:de | German |
+| #lang:it | Italian |
+| #lang:sv | Swedish |
+| #lang:nl | Dutch |
+| #lang:no | Norwegian |
+| #lang:fi | Finnish |
+| #lang:cs | Czech |
+| #lang:sl | Slovenian |
+| #lang:kh | Simplified Chinese |
+| #lang:ch | Chinese |
+| #lang:ko | Korean |
 
-**#genre:vending**
-**\>popcorn** (Popcorn)
-**\>purikura** (Photo stickers)
+## Media Source Tags
+
+| Tag | Description |
+|-----|-------------|
+| #based:movie | Based on a movie |
+| #based:manganime | Based on manga/anime |
+| #official:sports | Official sports license |
+| #endorsed:celeb | Celebrity endorsed |
+| #endorsed:company | Company/brand endorsed |
+
+## System Port Tags
+
+| Original System | Tag | Description |
+|----------------|-----|-------------|
+| Arcade | #port:arcade | Arcade port |
+| Commodore | #port:c64<br>#port:amiga | Commodore 64<br>Commodore Amiga |
+| Apple | #port:apple2<br>#port:mac | Apple II<br>Apple Macintosh |
+| SEGA | #port:sg1000<br>#port:gamegear<br>#port:mark3<br>#port:megadrive<br>#port:saturn | SG-1000<br>Game Gear<br>Mark III / Master System<br>MegaDrive / Genesis<br>Saturn |
+| Nintendo | #port:famicom<br>#port:superfamicom<br>#port:gameboy | Famicom / NES<br>Super Famicom / SNES<br>GameBoy |
+| NEC | #port:pc88<br>#port:pc98<br>#port:pcengine | PC-8801<br>PC-9801<br>PC Engine |
+
+## Re-release Collection Tags
+
+| Publisher | Tag | Description |
+|-----------|-----|-------------|
+| Nintendo | #rerelease:virtualconsole<br>#rerelease:switchonline<br>#rerelease:ereader | Virtual Console (Wii/WiiU/3DS)<br>Switch Online<br>e-Reader |
+| SEGA | #rerelease:segaclassic<br>#rerelease:segaages<br>#rerelease:mdclassics | SEGA Classic<br>SEGA Ages<br>MegaDrive/Genesis Classics |
+| Konami | #rerelease:castlevaniaanniversary<br>#rerelease:contraanniversary | Castlevania Collection<br>Contra Collection |
+| NAMCO | #rerelease:namcoanthology<br>#rerelease:namcot | NAMCO Anthology<br>NAMCOT Collection |
+
+## Hardware Add-on Tags
+
+### SEGA Hardware
+
+| Tag | Description | Hidden Features |
+|-----|-------------|----------------|
+| #addon:bikehandle | SEGA Bike Handle | - |
+| #addon:graphicboard | SEGA Graphic Board | - |
+| #addon:3dglasses | SEGA 3-D Glasses | >hidden |
+| #addon:fmsoundunit | SEGA FM Sound Unit | >hidden |
+| #addon:lightphaser | SEGA Light Phaser | - |
+| #addon:paddlecontrol | SEGA Paddle Control | - |
+| #addon:sportspad | SEGA Sports Pad | - |
+| #addon:6button | SEGA Six Button Control Pad | - |
+| #addon:menacer | SEGA Menacer | - |
+| #addon:segavr | SEGA VR Headset | - |
+| #addon:megamodem | SEGA Mega Modem | - |
+| #addon:megaanser | SEGA Mega Anser | - |
+| #addon:mouse>md | SEGA Mouse | - |
+
+### Nintendo Hardware
+
+| Tag | Description | Subtype |
+|-----|-------------|---------|
+| #addon:rob | R.O.B. | >gyro (Gyro Set)<br>>block (Block Set) |
+| #addon:zapper | Nintendo Zapper | - |
+| #addon:powerglove | Power Glove | - |
+| #addon:supergameboy | Super GameBoy | 1 & 2 |
+| #addon:64dd | Nintendo 64DD | - |
+| #addon:transferpak | Transfer Pak | - |
+| #addon:rumblepak | Rumble Pak | - |
+| #addon:expansionpak | Expansion Pak | - |
+| #addon:keyboard | Keyboard | >fc (Famicom)<br>>n64 (Nintendo 64) |
+
+### NEC Hardware
+
+| Tag | Description |
+|-----|-------------|
+| #addon:mouse>pce | PC Engine Mouse |
+| #addon:mouse>pcfx | PC-FX Mouse |
+| #addon:10key | 10 Key Controller Pad |
+| #addon:pcemultitap | Multitap / TurboTap |
+| #addon:cdromrom | CD-ROM² / Super CD-ROM² |
+| #addon:arcadecard | Arcade Card Pro/Duo |
+
+### Storage & Memory
+
+| Tag | Description |
+|-----|-------------|
+| #addon:backupramcart | Mega-CD Backup RAM Cart |
+| #addon:memorybase128 | Memory Base 128 |
+| #addon:controllerpak | N64 Controller Pak |
+| #addon:turbofile | Turbo File Series |
+| #addon:superturbofile | Super Turbo File |
+
+### Communication Devices
+
+| Tag | Description |
+|-----|-------------|
+| #addon:gamelinkcable | Game Link Cable |
+| #addon:taisencable | Taisen/Gear-to-Gear Cable |
+| #addon:ngplink | NeoGeo Pocket Link |
+| #addon:radiounitwireless | Radio Unit Wireless |
+| #addon:setsuzoku | NGP-Dreamcast Link |
+
+### Specialized Controllers
+
+| Tag | Description |
+|-----|-------------|
+| #addon:ddr | Dance Dance Revolution |
+| #addon:mahjongcontroller | Mahjong Controller |
+| #addon:pachinkocontroller | Pachinko Controller |
+| #addon:arkanoid | Arkanoid Controller |
+| #addon:justifier | The Justifier |
+| #addon:gamegun | Laser GameGun |
+
+### Audio & Visual
+
+| Tag | Description |
+|-----|-------------|
+| #addon:karaokestudio | Karaoke Studio |
+| #addon:pocketcamera | GameBoy Camera |
+| #addon:pocketprinter | GameBoy Printer |
+| #addon:printbooster | Print Booster |
+| #addon:photoreader | Photo Reader |
+
+## System Enhancement Tags
+
+| Tag | Description |
+|-----|-------------|
+| #addon:megacd | SEGA Mega-CD / SEGA-CD |
+| #addon:super32x | SEGA 32X |
+| #addon:disksystem | Famicom Disk System |
+| #addon:biosensor | Bio Sensor |
+| #addon:smartmediacard | SmartMedia Card |
+
+## Arcade Board Tags
+
+### CAPCOM Boards
+
+| Tag | Description |
+|-----|-------------|
+| #arcadeboard:capcom>cps | CAPCOM CP System |
+| #arcadeboard:capcom>cpsdash | CAPCOM CP System Dash |
+| #arcadeboard:capcom>cpschanger | CAPCOM CP System Changer |
+| #arcadeboard:capcom>cps2 | CAPCOM CP System II |
+| #arcadeboard:capcom>cps3 | CAPCOM CP System III |
+
+### SEGA Boards
+
+| Tag | Description |
+|-----|-------------|
+| #arcadeboard:sega>vco | SEGA VCO Object |
+| #arcadeboard:sega>1 | SEGA System 1 |
+| #arcadeboard:sega>2 | SEGA System 2 |
+| #arcadeboard:sega>16 | SEGA System 16 |
+| #arcadeboard:sega>16a | SEGA System 16A |
+| #arcadeboard:sega>16b | SEGA System 16B |
+| #arcadeboard:sega>16c | SEGA System 16C |
+| #arcadeboard:sega>18 | SEGA System 18 |
+| #arcadeboard:sega>24 | SEGA System 24 |
+| #arcadeboard:sega>32 | SEGA System 32 |
+| #arcadeboard:sega>m32 | SEGA System Multi 32 |
+| #arcadeboard:sega>c | SEGA System C |
+| #arcadeboard:sega>c2 | SEGA System C-2 |
+| #arcadeboard:sega>e | SEGA System E |
+| #arcadeboard:sega>x | SEGA X Board |
+| #arcadeboard:sega>y | SEGA Y Board |
+| #arcadeboard:sega>stv | SEGA Titan Video |
+
+### IREM Boards
+
+| Tag | Description |
+|-----|-------------|
+| #arcadeboard:irem>m10 | Irem M10 |
+| #arcadeboard:irem>m15 | Irem M15 |
+| #arcadeboard:irem>m27 | Irem M27 |
+| #arcadeboard:irem>m52 | Irem M52 |
+| #arcadeboard:irem>m57 | Irem M57 |
+| #arcadeboard:irem>m58 | Irem M58 |
+| #arcadeboard:irem>m62 | Irem M62 |
+| #arcadeboard:irem>m72 | Irem M72 |
+| #arcadeboard:irem>m92 | Irem M92 |
+| #arcadeboard:irem>m107 | Irem M107 |
+
+### TAITO Boards
+
+| Tag | Description |
+|-----|-------------|
+| #arcadeboard:taito>xsystem | X System |
+| #arcadeboard:taito>bsystem | B System |
+| #arcadeboard:taito>hsystem | H System |
+| #arcadeboard:taito>lsystem | L System |
+| #arcadeboard:taito>zsystem | Z System |
+| #arcadeboard:taito>osystem | O System |
+| #arcadeboard:taito>f1 | F1/F2 System |
+| #arcadeboard:taito>f2 | F2 System |
+| #arcadeboard:taito>lg | LG System |
+
+### Other Manufacturers
+
+| Tag | Description |
+|-----|-------------|
+| #arcadeboard:toaplan>1 | Toaplan Version 1 |
+| #arcadeboard:toaplan>2 | Toaplan Version 2 |
+| #arcadeboard:snk>mvs | SNK Multi Video System |
+| #arcadeboard:jaleco>ms1 | Jaleco Mega System 1 |
 
 **#disc** (Disc)
 **\:1** (1, 2, 3, etc)
