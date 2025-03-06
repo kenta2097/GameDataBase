@@ -10,22 +10,20 @@ GameDataBase project aims to provide the most detailed information about every v
 
 ## CSV Fields
 
-## CSV Fields
-
-| Field | Description |
-|-------|-------------|
-| Screen title @ Exact | Original title exactly as displayed in-game, particularly useful for preserving Japanese titles in their original characters |
-| Cover Title @ Exact | Title exactly as shown on physical media cover/packaging |
-| ID | Unique identifier for different versions/releases of the same game |
-| Date | Release date in YYYY-MM-DD format (partial dates like YYYY or YYYY-MM are acceptable) |
-| Developer | Company/team that developed the game |
-| Publisher | Company that published/distributed the game |
-| Tags | Game classification tags using the defined taxonomy |
-| MAME filename | ROM filename as used in MAME |
-| MD5 hash | MD5 checksum of the game file |
-| SHA1 hash | SHA1 checksum of the game file |
-| SHA256 hash | SHA256 checksum of the game file |
-| SHA512 hash | SHA512 checksum of the game file |
+| **Field** | Description |
+|-----------|-------------|
+| **Screen title @ Exact** | Original title exactly as displayed in-game, particularly useful for preserving Japanese titles in their original characters |
+| **Cover Title @ Exact** | Title exactly as shown on physical media cover/packaging |
+| **ID** | Unique identifier for different versions/releases of the same game |
+| **Date** | Release date in YYYY-MM-DD format (partial dates like YYYY or YYYY-MM are acceptable) |
+| **Developer** | Company/team that developed the game |
+| **Publisher** | Company that published/distributed the game |
+| **Tags** | Game classification tags using the defined taxonomy |
+| **MAME filename** | ROM filename as used in MAME |
+| **MD5 hash** | MD5 checksum of the game file |
+| **SHA1 hash** | SHA1 checksum of the game file |
+| **SHA256 hash** | SHA256 checksum of the game file |
+| **SHA512 hash** | SHA512 checksum of the game file |
 
 ## Guide for tags
 
