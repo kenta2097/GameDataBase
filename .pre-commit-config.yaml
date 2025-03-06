@@ -4,13 +4,14 @@ repos:
     hooks:
       - id: markdownlint-fix
 
-#  - repo: https://github.com/jbzoo/csv-blueprint
-#    rev: 1.0.3
-#    hooks:
-#      - id: csv-blueprint
-#        args: ['--csv', './tests/**/*.csv', '--schema', './tests/**/*.yml', '--report', 'table']
-
-#  - repo: https://github.com/alan-turing-institute/CleverCSV-pre-commit
-#    rev: v0.8.3
-#    hooks:
-#      - id: clevercsv-standardize
+  # - repo: https://github.com/jbzoo/csv-blueprint
+  #   rev: 1.0.3
+  #   hooks:
+  #     - id: csv-blueprint
+  #       args:
+  #         - '--csv'
+  #         - './tests/**/*.csv'
+  #         - '--schema'
+  #         - './tests/**/*.yml'
+  #         - '--report'
+  #         - 'table'
