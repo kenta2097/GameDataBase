@@ -4,6 +4,11 @@ repos:
     hooks:
       - id: markdownlint-fix
 
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.0
+    hooks:
+      - id: codespell
+
   # - repo: https://github.com/jbzoo/csv-blueprint
   #   rev: 1.0.3
   #   hooks:

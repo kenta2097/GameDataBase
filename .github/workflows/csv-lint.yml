@@ -1,8 +1,9 @@
 name: Lint CSV Pull Request
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize, edited]
+#  pull_request:
+#    types: [opened, reopened, synchronize, edited]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -24,13 +25,14 @@ jobs:
         with:
           fetch-depth: '0'
           token: ${{ secrets.WORKFLOW_PERMISSIONS_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.pull_request.head.ref }}
                     
       - name: Run Super-Linter
         uses: super-linter/super-linter/slim@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 # v7.3.0
         env:
           ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          DEFAULT_BRANCH: ${{ github.event.pull_request.head.ref }}
+          DEFAULT_BRANCH: ${{ github.event.pull_request.head.ref }}
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN: true
           FIX_MARKDOWN_PRETTIER: true

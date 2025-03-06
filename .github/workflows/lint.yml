@@ -1,9 +1,9 @@
 name: Lint Pull Request
 
 on:
-  workflow_dispatch:
-#  pull_request:
-#    types: [ opened, reopened, synchronize, edited ]
+#  workflow_dispatch:
+  pull_request:
+    types: [ opened, reopened, synchronize, edited ]
 
 permissions:
   contents: read
