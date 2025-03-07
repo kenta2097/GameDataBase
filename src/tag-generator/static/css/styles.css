@@ -21,6 +21,9 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
 .container {
@@ -28,6 +31,7 @@ body {
     margin: 0 auto;
     padding: 2rem;
     padding-bottom: 180px;
+    max-width: 800px;
 }
 
 h1 {
@@ -426,6 +430,14 @@ select:focus {
     padding: 0.5rem;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 3px;
 }
 
 @media (max-width: 768px) {

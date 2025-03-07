@@ -4,7 +4,7 @@ from jinja2 import StrictUndefined
 import os
 
 app = Flask(__name__, 
-           static_url_path='/static',  # Cambiado
+           static_url_path='/GameDataBase/tag-generator/static',  # Actualizado
            static_folder='static')     # Explícitamente definido
 app.secret_key = 'gamedatabase_secret_key'  # Required for flash messages
 
@@ -15,7 +15,7 @@ app.config.update(
     APPLICATION_ROOT='/GameDataBase/tag-generator',
     PREFERRED_URL_SCHEME='https',
     STATIC_URL_PATH='/GameDataBase/tag-generator/static',
-    SERVER_NAME='localhost:5000'  # Añadido para URLs absolutas
+    SERVER_NAME=None  # Removido para evitar problemas con URLs
 )
 
 # Configurar las rutas de los directorios
