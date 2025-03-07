@@ -14,7 +14,7 @@ permissions:
 jobs:
   gh-pages:
     environment:
-      name: github-pages
+      name: ${{ github.ref == 'refs/heads/main' && 'github-pages' || 'preview-pages' }}
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          BRANCH_NAME: ${{ github.ref_name }}
+          GITHUB_PAGES_BRANCH: ${{ github.ref_name }}
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -43,7 +43,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+          name: ${{ github.ref_name }}-pages
       
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ github.ref_name }}-pages
