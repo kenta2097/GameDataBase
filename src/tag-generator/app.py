@@ -8,9 +8,12 @@ app = Flask(__name__,
            static_folder='static')     # Explícitamente definido
 app.secret_key = 'gamedatabase_secret_key'  # Required for flash messages
 
-# Configuración para GitHub Pages
-app.config['APPLICATION_ROOT'] = '/GameDataBase'
-app.config['PREFERRED_URL_SCHEME'] = 'https'
+# Actualizar configuración para GitHub Pages
+app.config.update(
+    APPLICATION_ROOT='/GameDataBase/tag-generator',
+    PREFERRED_URL_SCHEME='https',
+    STATIC_URL_PATH='/GameDataBase/tag-generator/static'
+)
 
 # Configurar las rutas de los directorios
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
@@ -119,4 +122,5 @@ def generate():
                          has_tags=bool(selected_tags))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
