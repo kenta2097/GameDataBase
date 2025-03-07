@@ -41,6 +41,8 @@ jobs:
         working-directory: ./src/tag-generator
         run: |
           python -m pip install --upgrade pip
+          pip check || true  # Verificar conflictos
+          pip install -r requirements.txt --no-deps
           pip install -r requirements.txt
       
       - name: Build static files
