@@ -5,7 +5,21 @@ import os
 
 # Definir rutas de archivos y directorios
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-CONFIG_FILE = os.path.join(BASE_DIR, 'tags.yml')  # Definición movida aquí arriba
+
+def get_config_file():
+    # Buscar el archivo en la raíz primero
+    root_config = os.path.join(BASE_DIR, 'tags.yml')
+    if os.path.exists(root_config):
+        return root_config
+    
+    # Si no está en la raíz, buscar en el directorio actual
+    local_config = os.path.join(os.path.dirname(__file__), 'tags.yml')
+    if os.path.exists(local_config):
+        return local_config
+    
+    return root_config  # Devolver la ruta raíz por defecto
+
+CONFIG_FILE = get_config_file()
 
 app = Flask(__name__, 
            static_url_path='',  # Simplificado
@@ -49,13 +63,7 @@ def convert_keys_to_str(data):
 def load_tags():
     try:
         if not os.path.exists(CONFIG_FILE):
-            # Si el archivo no está en la raíz, intentar en el directorio actual
-            local_config = os.path.join(os.path.dirname(__file__), 'tags.yml')
-            if os.path.exists(local_config):
-                global CONFIG_FILE
-                CONFIG_FILE = local_config
-            else:
-                raise FileNotFoundError(f"No tags.yml found in {CONFIG_FILE} or {local_config}")
+            raise FileNotFoundError(f"No tags.yml found in {CONFIG_FILE}")
                 
         with open(CONFIG_FILE, 'r', encoding='utf-8') as file:
             data = yaml.safe_load(file)
