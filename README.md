@@ -74,13 +74,15 @@ The `>` level only applies to its immediate `:` subcategory.
 
 ## Input System Tags
 
-| Tag | Description | Subvalues |
-|-----|-------------|-----------|
-| `#input:joystick` | Joystick | `>2h` (2-way horizontal) `>2v` (2-way vertical) `>3` (3-way) `>4` (4-way) `>8` (8-way) |
-| `#input:doublejoystick` | Double joystick | Same as joystick |
-| `#input:buttons` | In-game buttons | `>1` to `>23` `>pneumatic` |
-| `#input:keys` | Keyboard keys | `>1` to `>23` |
-| `#input:pedals` | Pedals | `>1` to `>23` |
+## Input System Tags
+
+| Tag | Description | Values | Value Description |
+|-----|-------------|--------|------------------|
+| `#input:joystick` | Joystick input | `>2h`<br>`>2v`<br>`>3`<br>`>4`<br>`>8` | 2-way horizontal<br>2-way vertical<br>3-way<br>4-way<br>8-way |
+| `#input:doublejoystick` | Dual joystick setup | `>2h`<br>`>2v`<br>`>3`<br>`>4`<br>`>8` | 2-way horizontal<br>2-way vertical<br>3-way<br>4-way<br>8-way |
+| `#input:buttons` | Action buttons | `>1` to `>23`<br>`>pneumatic` | Number of buttons<br>Pneumatic buttons |
+| `#input:keys` | Keyboard keys | `>1` to `>23` | Number of keys |
+| `#input:pedals` | Foot pedals | `>1` to `>23` | Number of pedals |
 
 ## Players Tags
 
@@ -442,8 +444,8 @@ The `>` level only applies to its immediate `:` subcategory.
 
 | Tag | Description | Subtypes |
 |-----|-------------|----------|
-| `#rev` | Revision | `:1`, `:2`, `:a`, `:b`, `:c`, `:g` |
-| `#set` | Set number | `:1`, `:2` |
+| `#rev` | Revision | `:1`<br>`:2`<br> `:a`<br>`:b`<br>`:c`<br>`:g` |
+| `#set` | Set number | `:1`<br>`:2` |
 | `#unfinished` | Unfinished game | `:beta`<br>`:proto`<br>`:demo`<br>`:sample`<br>`:debug`<br>`:competition` |
 | `#unfinished:beta` | Beta version | `>1`<br>`>2`<br>`>3`<br>`>alt` |
 | `#unfinished:demo` | Demo version | `>1`<br>`>2`<br>`>auto`<br>`>kiosk` |
