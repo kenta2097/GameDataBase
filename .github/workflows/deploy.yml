@@ -31,6 +31,13 @@ jobs:
           npm install
           npm ci
       
+      - name: Generate artifact name
+        id: artifact-name
+        run: |
+          BRANCH_NAME="${{ github.ref_name }}"
+          SAFE_BRANCH_NAME="${BRANCH_NAME//\//-}"
+          echo "name=pages-${SAFE_BRANCH_NAME:-main}" >> $GITHUB_OUTPUT
+      
       - name: Build
         run: npm run build
         env:
@@ -43,10 +50,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-          name: pages-${{ github.ref_name || 'main' | replace('/', '-') }}
+          name: ${{ steps.artifact-name.outputs.name }}
       
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: pages-${{ github.ref_name || 'main' | replace('/', '-') }}
+          artifact_name: ${{ steps.artifact-name.outputs.name }}
