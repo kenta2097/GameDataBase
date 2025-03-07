@@ -3,6 +3,10 @@ import yaml
 from jinja2 import StrictUndefined
 import os
 
+# Definir rutas de archivos y directorios
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+CONFIG_FILE = os.path.join(BASE_DIR, 'tags.yml')  # Definición movida aquí arriba
+
 app = Flask(__name__, 
            static_url_path='',  # Simplificado
            static_folder='static')
@@ -44,6 +48,15 @@ def convert_keys_to_str(data):
 
 def load_tags():
     try:
+        if not os.path.exists(CONFIG_FILE):
+            # Si el archivo no está en la raíz, intentar en el directorio actual
+            local_config = os.path.join(os.path.dirname(__file__), 'tags.yml')
+            if os.path.exists(local_config):
+                global CONFIG_FILE
+                CONFIG_FILE = local_config
+            else:
+                raise FileNotFoundError(f"No tags.yml found in {CONFIG_FILE} or {local_config}")
+                
         with open(CONFIG_FILE, 'r', encoding='utf-8') as file:
             data = yaml.safe_load(file)
             # Convert numeric keys to strings in the entire data structure
