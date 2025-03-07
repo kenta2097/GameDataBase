@@ -17,7 +17,7 @@ app.config.update(
 
 # Configurar las rutas de los directorios
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-CONFIG_FILE = os.path.join(BASE_DIR, 'tags.yml')
+CONFIG_FILE = os.path.join(BASE_DIR, 'tags.yml')  # Usar el archivo de la raíz
 
 # Modificar la función helper
 def static_url(filename):

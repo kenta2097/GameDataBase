@@ -51,7 +51,7 @@ jobs:
           mkdir -p ../../dist
           cp -r static templates ../../dist/
           cp app.py ../../dist/
-          cp tags.yml ../../dist/
+          cp ../../tags.yml ../../dist/  # Copiar desde la raíz del repositorio
       
       - name: Generate artifact name
         id: artifact-name
