@@ -4,27 +4,21 @@ from jinja2 import StrictUndefined
 import os
 
 app = Flask(__name__, 
-           static_url_path='/GameDataBase/tag-generator/static',  # Actualizado
-           static_folder='static')     # Explícitamente definido
-app.secret_key = 'gamedatabase_secret_key'  # Required for flash messages
+           static_url_path='',  # Simplificado
+           static_folder='static')
+app.secret_key = 'gamedatabase_secret_key'
 
 # Actualizar configuración para GitHub Pages
 app.config.update(
     FREEZER_RELATIVE_URLS=True,
     FREEZER_DESTINATION='build',
-    APPLICATION_ROOT='/GameDataBase/tag-generator',
-    PREFERRED_URL_SCHEME='https',
-    STATIC_URL_PATH='/GameDataBase/tag-generator/static',
-    SERVER_NAME=None  # Removido para evitar problemas con URLs
+    FREEZER_BASE_URL='/GameDataBase/tag-generator/',
+    APPLICATION_ROOT='/GameDataBase/tag-generator'
 )
-
-# Configurar las rutas de los directorios
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-CONFIG_FILE = os.path.join(BASE_DIR, 'tags.yml')  # Usar el archivo de la raíz
 
 # Modificar la función helper
 def static_url(filename):
-    return url_for('static', filename=filename, _external=True)
+    return url_for('static', filename=filename, _external=False)
 
 # Hacer la función disponible en las plantillas
 app.jinja_env.globals.update(static_url=static_url)
