@@ -22,7 +22,7 @@ def get_config_file():
 CONFIG_FILE = get_config_file()
 
 app = Flask(__name__, 
-           static_url_path='',  # Simplificado
+           static_url_path='/static',  # Cambiado para usar ruta relativa
            static_folder='static')
 app.secret_key = 'gamedatabase_secret_key'
 
@@ -30,13 +30,14 @@ app.secret_key = 'gamedatabase_secret_key'
 app.config.update(
     FREEZER_RELATIVE_URLS=True,
     FREEZER_DESTINATION='build',
-    FREEZER_BASE_URL='/GameDataBase/tag-generator/',
-    APPLICATION_ROOT='/GameDataBase/tag-generator'
+    FREEZER_BASE_URL='/GameDataBase/tag-generator',
+    APPLICATION_ROOT='/GameDataBase/tag-generator',
+    SERVER_NAME=None
 )
 
-# Modificar la función helper
+# Modificar la función helper para URLs relativas
 def static_url(filename):
-    return url_for('static', filename=filename, _external=False)
+    return url_for('static', filename=filename, _external=False).lstrip('/')
 
 # Hacer la función disponible en las plantillas
 app.jinja_env.globals.update(static_url=static_url)
