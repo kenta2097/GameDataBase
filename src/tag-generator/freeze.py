@@ -21,8 +21,8 @@ def static():
             yield {'filename': rel_path}
 
 if __name__ == '__main__':
-    app.config['FREEZER_RELATIVE_URLS'] = True
-    app.config['FREEZER_BASE_URL'] = '/GameDataBase/tag-generator'
+    app.config['FREEZER_RELATIVE_URLS'] = False
+    app.config['FREEZER_BASE_URL'] = 'https://kenta2097.github.io'
     app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
     app.config['FREEZER_STATIC_IGNORE'] = []
     app.config['FREEZER_DESTINATION'] = 'build'
