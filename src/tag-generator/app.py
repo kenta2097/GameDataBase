@@ -10,6 +10,8 @@ app.secret_key = 'gamedatabase_secret_key'  # Required for flash messages
 
 # Actualizar configuración para GitHub Pages
 app.config.update(
+    FREEZER_RELATIVE_URLS=True,
+    FREEZER_DESTINATION='build',
     APPLICATION_ROOT='/GameDataBase/tag-generator',
     PREFERRED_URL_SCHEME='https',
     STATIC_URL_PATH='/GameDataBase/tag-generator/static'
