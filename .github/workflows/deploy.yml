@@ -43,10 +43,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-          name: ${{ github.ref_name }}-pages
+          name: pages-${{ github.ref_name || 'main' | replace('/', '-') }}
       
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ${{ github.ref_name }}-pages
+          artifact_name: pages-${{ github.ref_name || 'main' | replace('/', '-') }}
