@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.44.0
+    hooks:
+      - id: markdownlint-fix
+
+# Useful for checking the expresions and correctness 
+  # - repo: https://github.com/errata-ai/vale
+  #   rev: v3.9.6
+  #   hooks:
+  #     - id: vale
+  #       name: vale sync
+  #       pass_filenames: false
+  #       args: [sync]
+  #     - id: vale
+  #       args: [--output=line, --minAlertLevel=error]
+
+# Works for spelling exclusion lists can be added to the codespell_ignore_words file
+  # - repo: https://github.com/codespell-project/codespell
+  #   rev: v2.4.0
+  #   hooks:
+  #     - id: codespell
+
+  # - repo: https://github.com/jbzoo/csv-blueprint
+  #   rev: 1.0.3
+  #   hooks:
+  #     - id: csv-blueprint
+  #       args:
+  #         - '--csv'
+  #         - './tests/**/*.csv'
+  #         - '--schema'
+  #         - './tests/**/*.yml'
+  #         - '--report'
+  #         - 'table'
