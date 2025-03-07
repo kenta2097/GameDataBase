@@ -51,7 +51,7 @@ jobs:
           mkdir -p ../../dist
           cp -r static templates ../../dist/
           cp app.py ../../dist/
-          cp tags.yml ../../dist/  # Ahora el archivo existe en el directorio correcto
+          cp ../../tags.yml ../../dist/  # Ahora el archivo existe en el directorio correcto
       
       - name: Generate artifact name
         id: artifact-name
