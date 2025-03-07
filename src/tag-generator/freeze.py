@@ -17,7 +17,7 @@ def static():
             yield {'filename': rel_path}
 
 if __name__ == '__main__':
-    # Configuración mínima necesaria
     app.config['FREEZER_DESTINATION'] = 'build'
     app.config['FREEZER_RELATIVE_URLS'] = True
+    app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
     freezer.freeze()

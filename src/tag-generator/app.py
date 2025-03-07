@@ -22,22 +22,24 @@ def get_config_file():
 CONFIG_FILE = get_config_file()
 
 app = Flask(__name__, 
-           static_url_path='',  # Cambiado a ruta vacía
+           static_url_path='static',  # Cambiado
            static_folder='static')
 app.secret_key = 'gamedatabase_secret_key'
 
-# Simplificar la configuración
+# Actualizar configuración
 app.config.update(
     FREEZER_RELATIVE_URLS=True,
     FREEZER_DESTINATION='build',
-    FREEZER_BASE_URL=None,  # Cambiado a None
-    APPLICATION_ROOT=None,   # Cambiado a None
     PREFERRED_URL_SCHEME='https'
 )
 
-# Simplificar la función helper
+# Función helper corregida para URLs estáticas
 def static_url(filename):
-    return 'static/' + filename
+    if not filename:
+        return ''
+    if filename.startswith('/'):
+        filename = filename[1:]
+    return os.path.join('static', filename)
 
 # Hacer la función disponible en las plantillas
 app.jinja_env.globals.update(static_url=static_url)
