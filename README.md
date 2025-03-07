@@ -74,8 +74,6 @@ The `>` level only applies to its immediate `:` subcategory.
 
 ## Input System Tags
 
-## Input System Tags
-
 | Tag | Description | Values | Value Description |
 |-----|-------------|--------|------------------|
 | `#input:joystick` | Joystick input | `>2h`<br>`>2v`<br>`>3`<br>`>4`<br>`>8` | 2-way horizontal<br>2-way vertical<br>3-way<br>4-way<br>8-way |
