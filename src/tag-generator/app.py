@@ -22,21 +22,21 @@ def get_config_file():
 CONFIG_FILE = get_config_file()
 
 app = Flask(__name__, 
-           static_url_path='/GameDataBase/tag-generator/static',  # Ruta absoluta
+           static_url_path='/static',  # Simplificado
            static_folder='static')
 app.secret_key = 'gamedatabase_secret_key'
 
 # Actualizar configuración para GitHub Pages
 app.config.update(
-    FREEZER_RELATIVE_URLS=False,  # Cambiado a False para usar URLs absolutas
+    FREEZER_RELATIVE_URLS=True,  # Cambiado a True
     FREEZER_DESTINATION='build',
-    FREEZER_BASE_URL='https://kenta2097.github.io',  # URL base completa
-    APPLICATION_ROOT='/GameDataBase/tag-generator'
+    FREEZER_BASE_URL='GameDataBase/tag-generator',  # Simplificado
+    APPLICATION_ROOT='GameDataBase/tag-generator'
 )
 
-# Función helper actualizada para URLs estáticas
+# Función helper simplificada
 def static_url(filename):
-    return f"/GameDataBase/tag-generator/static/{filename}"
+    return f"static/{filename}"
 
 # Hacer la función disponible en las plantillas
 app.jinja_env.globals.update(static_url=static_url)
