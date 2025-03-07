@@ -9,10 +9,6 @@ def index():
     yield {}
 
 @freezer.register_generator
-def generate():
-    yield {}
-
-@freezer.register_generator
 def static():
     static_dir = os.path.join(os.path.dirname(__file__), 'static')
     for root, dirs, files in os.walk(static_dir):
@@ -21,9 +17,7 @@ def static():
             yield {'filename': rel_path}
 
 if __name__ == '__main__':
-    app.config['FREEZER_RELATIVE_URLS'] = True
-    app.config['FREEZER_BASE_URL'] = 'GameDataBase/tag-generator'
-    app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
+    # Configuración mínima necesaria
     app.config['FREEZER_DESTINATION'] = 'build'
-    app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
+    app.config['FREEZER_RELATIVE_URLS'] = True
     freezer.freeze()

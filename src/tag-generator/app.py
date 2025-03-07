@@ -22,21 +22,22 @@ def get_config_file():
 CONFIG_FILE = get_config_file()
 
 app = Flask(__name__, 
-           static_url_path='/static',  # Simplificado
+           static_url_path='',  # Cambiado a ruta vacía
            static_folder='static')
 app.secret_key = 'gamedatabase_secret_key'
 
-# Actualizar configuración para GitHub Pages
+# Simplificar la configuración
 app.config.update(
-    FREEZER_RELATIVE_URLS=True,  # Cambiado a True
+    FREEZER_RELATIVE_URLS=True,
     FREEZER_DESTINATION='build',
-    FREEZER_BASE_URL='GameDataBase/tag-generator',  # Simplificado
-    APPLICATION_ROOT='GameDataBase/tag-generator'
+    FREEZER_BASE_URL=None,  # Cambiado a None
+    APPLICATION_ROOT=None,   # Cambiado a None
+    PREFERRED_URL_SCHEME='https'
 )
 
-# Función helper simplificada
+# Simplificar la función helper
 def static_url(filename):
-    return f"static/{filename}"
+    return 'static/' + filename
 
 # Hacer la función disponible en las plantillas
 app.jinja_env.globals.update(static_url=static_url)
