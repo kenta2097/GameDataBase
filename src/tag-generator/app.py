@@ -14,7 +14,8 @@ app.config.update(
     FREEZER_DESTINATION='build',
     APPLICATION_ROOT='/GameDataBase/tag-generator',
     PREFERRED_URL_SCHEME='https',
-    STATIC_URL_PATH='/GameDataBase/tag-generator/static'
+    STATIC_URL_PATH='/GameDataBase/tag-generator/static',
+    SERVER_NAME='localhost:5000'  # Añadido para URLs absolutas
 )
 
 # Configurar las rutas de los directorios
