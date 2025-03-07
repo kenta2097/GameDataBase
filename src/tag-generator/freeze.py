@@ -18,6 +18,8 @@ def static():
 
 if __name__ == '__main__':
     app.config['FREEZER_DESTINATION'] = 'build'
-    app.config['FREEZER_RELATIVE_URLS'] = True
+    app.config['FREEZER_RELATIVE_URLS'] = False
+    app.config['FREEZER_BASE_URL'] = 'http://localhost:5000'
+    app.config['FREEZER_STATIC_URL'] = '/static'
     app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
     freezer.freeze()
