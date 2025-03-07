@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDataBase Tag Generator</title>
+    <link rel="stylesheet" href="GameDataBase/css/styles.css">
+    <base href="GameDataBase/index.html">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            GameDataBase
+            <span>Tag Generator</span>
+        </h1>
+        
+        
+            
+        
+
+        <div id="categoryContainer">
+            
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="standalone">Standalone:</label>
+                            
+                            
+                                <select id="standalone" name="standalone" onchange="safeUpdateTags(this)">
+                                    <option value="">Select standalone</option>
+                                    
+                                    
+                                        
+                                            <option value="mameparent">MAME parent file</option>
+                                        
+                                            <option value="bios">BIOS game</option>
+                                        
+                                            <option value="promo">Promotion product</option>
+                                        
+                                            <option value="qsound">QSound</option>
+                                        
+                                    
+                                </select>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="input">Input:</label>
+                            
+                            
+                                <select id="input" name="input" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select input</option>
+                                    
+                                    
+                                        
+                                            <option value="joystick">
+                                                Joystick input
+                                            </option>
+                                        
+                                            <option value="doublejoystick">
+                                                Dual joystick setup
+                                            </option>
+                                        
+                                            <option value="buttons">
+                                                Action buttons
+                                            </option>
+                                        
+                                            <option value="keys">
+                                                Keyboard keys
+                                            </option>
+                                        
+                                            <option value="pedals">
+                                                Foot pedals
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="input_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="genre">Genre:</label>
+                            
+                            
+                                <select id="genre" name="genre" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select genre</option>
+                                    
+                                    
+                                        
+                                            <option value="action">
+                                                Action game
+                                            </option>
+                                        
+                                            <option value="adventure">
+                                                Adventure game
+                                            </option>
+                                        
+                                            <option value="platformer">
+                                                Platformer game
+                                            </option>
+                                        
+                                            <option value="fighting">
+                                                Fighting game
+                                            </option>
+                                        
+                                            <option value="brawler">
+                                                Beat&#39;em up game
+                                            </option>
+                                        
+                                            <option value="rpg">
+                                                Role-playing game
+                                            </option>
+                                        
+                                            <option value="sports">
+                                                Sports game
+                                            </option>
+                                        
+                                            <option value="shmup">
+                                                Shoot&#39;em up game
+                                            </option>
+                                        
+                                            <option value="puzzle">
+                                                Puzzle game
+                                            </option>
+                                        
+                                            <option value="racing">
+                                                Racing game
+                                            </option>
+                                        
+                                            <option value="rhythm">
+                                                Rhythm game
+                                            </option>
+                                        
+                                            <option value="shooter">
+                                                Shooter game
+                                            </option>
+                                        
+                                            <option value="board">
+                                                Board game
+                                            </option>
+                                        
+                                            <option value="sim">
+                                                Simulation game
+                                            </option>
+                                        
+                                            <option value="arcade">
+                                                Arcade game
+                                            </option>
+                                        
+                                            <option value="other">
+                                                Other game
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="genre_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="display">Display:</label>
+                            
+                            
+                                <select id="display" name="display" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select display</option>
+                                    
+                                    
+                                        
+                                            <option value="3d">
+                                                3d
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="display_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="format">Format:</label>
+                            
+                            
+                                <select id="format" name="format" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select format</option>
+                                    
+                                    
+                                        
+                                            <option value="cartridge">
+                                                Cartridge Types
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="format_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="status">Status:</label>
+                            
+                            
+                                <select id="status" name="status" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select status</option>
+                                    
+                                    
+                                        
+                                            <option value="rev">
+                                                Revision
+                                            </option>
+                                        
+                                            <option value="set">
+                                                Set number
+                                            </option>
+                                        
+                                            <option value="unfinished">
+                                                Unfinished game
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="status_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="clone">Clone:</label>
+                            
+                            
+                                <select id="clone" name="clone" onchange="safeUpdateTags(this)">
+                                    <option value="">Select clone</option>
+                                    
+                                    
+                                        
+                                            <option value="mario">Mario clone</option>
+                                        
+                                            <option value="sonic">Sonic clone</option>
+                                        
+                                            <option value="sf2">Street Fighter II clone</option>
+                                        
+                                            <option value="tetris">Tetris clone</option>
+                                        
+                                    
+                                </select>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="commercial">Commercial:</label>
+                            
+                            
+                                <select id="commercial" name="commercial" onchange="safeUpdateTags(this)">
+                                    <option value="">Select commercial</option>
+                                    
+                                    
+                                        
+                                            <option value="lightgun">Light gun games</option>
+                                        
+                                            <option value="spinner">Spinner controller games</option>
+                                        
+                                            <option value="franchise">Popular franchise games</option>
+                                        
+                                    
+                                </select>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="multigame">Multigame:</label>
+                            
+                            
+                                <select id="multigame" name="multigame" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select multigame</option>
+                                    
+                                    
+                                        
+                                            <option value="compilation">
+                                                Game collections
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="multigame_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="unlicensed">Unlicensed:</label>
+                            
+                            
+                                <select id="unlicensed" name="unlicensed" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select unlicensed</option>
+                                    
+                                    
+                                        
+                                            <option value="bootleg">
+                                                Bootleg/pirated game
+                                            </option>
+                                        
+                                            <option value="hack">
+                                                Hacked game
+                                            </option>
+                                        
+                                            <option value="translation">
+                                                Fan translation
+                                            </option>
+                                        
+                                            <option value="aftermarket">
+                                                Made after original market cycle
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="unlicensed_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="system_variants">System_variants:</label>
+                            
+                            
+                                <select id="system_variants" name="system_variants" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select system_variants</option>
+                                    
+                                    
+                                        
+                                            <option value="sg1000">
+                                                sg1000
+                                            </option>
+                                        
+                                            <option value="gb">
+                                                gb
+                                            </option>
+                                        
+                                            <option value="pce">
+                                                pce
+                                            </option>
+                                        
+                                            <option value="ngp">
+                                                ngp
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="system_variants_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="embedded">Embedded:</label>
+                            
+                            
+                                <select id="embedded" name="embedded" onchange="safeUpdateSubcategory(this)">
+                                    <option value="">Select embedded</option>
+                                    
+                                    
+                                        
+                                            <option value="memory">
+                                                Memory &amp; Storage
+                                            </option>
+                                        
+                                            <option value="chips">
+                                                Enhancement Chips
+                                            </option>
+                                        
+                                            <option value="hardware">
+                                                Special Hardware
+                                            </option>
+                                        
+                                    
+                                </select>
+                                <div id="embedded_sub" class="subcategory" style="display:none;margin-left:20px;margin-top:10px;">
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="franchise">Franchise:</label>
+                            
+                            
+                                <select id="franchise" name="franchise" onchange="safeUpdateTags(this)">
+                                    <option value="">Select franchise</option>
+                                    
+                                    
+                                        
+                                            <option value="alien">Alien franchise</option>
+                                        
+                                            <option value="asterix">Astérix &amp; Obélix</option>
+                                        
+                                            <option value="batman">Batman</option>
+                                        
+                                            <option value="castlevania">Castlevania/悪魔城ドラキュラ</option>
+                                        
+                                            <option value="compatihero">Compati Hero</option>
+                                        
+                                            <option value="disney">Walt Disney</option>
+                                        
+                                            <option value="donald">Donald Duck</option>
+                                        
+                                            <option value="dracula">Dracula</option>
+                                        
+                                            <option value="dragonslayer">Dragon Slayer</option>
+                                        
+                                            <option value="dnd">Dungeons &amp; Dragons</option>
+                                        
+                                            <option value="gundam">Gundam</option>
+                                        
+                                            <option value="jurassicpark">Jurassic Park</option>
+                                        
+                                            <option value="kuniokun">Kunio-kun/くにおくん</option>
+                                        
+                                            <option value="looneytunes">Looney Tunes</option>
+                                        
+                                            <option value="mario">Mario</option>
+                                        
+                                            <option value="marvel">Marvel Comics</option>
+                                        
+                                            <option value="mickey">Mickey Mouse</option>
+                                        
+                                            <option value="pacman">Pac-Man</option>
+                                        
+                                            <option value="sherlock">Sherlock Holmes</option>
+                                        
+                                            <option value="simpsons">The Simpsons</option>
+                                        
+                                            <option value="smurfs">The Smurfs/Les Schtroumpfs</option>
+                                        
+                                            <option value="sonic">Sonic The Hedgehog</option>
+                                        
+                                            <option value="spiderman">Spider-Man</option>
+                                        
+                                            <option value="starwars">Star Wars</option>
+                                        
+                                            <option value="superman">Superman</option>
+                                        
+                                            <option value="wonderboy">Wonder Boy</option>
+                                        
+                                            <option value="xmen">X-Men</option>
+                                        
+                                    
+                                </select>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="main-category">
+                        <div class="select-group">
+                            <label for="search">Search:</label>
+                            
+                            
+                                <select id="search" name="search" onchange="safeUpdateTags(this)">
+                                    <option value="">Select search</option>
+                                    
+                                    
+                                        
+                                            <option value="lightgun">Light gun games</option>
+                                        
+                                            <option value="spinner">Spinner controller games</option>
+                                        
+                                    
+                                </select>
+                            
+                        </div>
+                    </div>
+                
+            
+        </div>
+        
+        <div class="tag-preview">
+            <div class="tag-output-container">
+                <h3>Generated Tags:</h3>
+                <textarea id="tagOutput" readonly></textarea>
+                <button class="copy-btn" onclick="copyTags()">Copy Tags</button>
+            </div>
+            <div class="tag-legend collapsed">
+                <button class="toggle-legend" onclick="toggleLegend(this)"></button>
+                <div class="tag-legend-content">
+                    <div class="legend-grid">
+                        <div class="syntax-section">
+                            <h4>Syntax</h4>
+                            <ul class="minimal-list">
+                                
+                            </ul>
+                        </div>
+                        <div class="examples-section">
+                            <h4>Examples</h4>
+                            <ul class="examples-list">
+                                
+                                
+                                    <li>
+                                        <code>#genre:action</code>
+                                        <span class="example-desc">Action Games</span>
+                                    </li>
+                                
+                                    <li>
+                                        <code>#input:buttons&gt;6</code>
+                                        <span class="example-desc">6-Button Games</span>
+                                    </li>
+                                
+                                    <li>
+                                        <code>#format:cartridge&gt;goldcartridge</code>
+                                        <span class="example-desc">Gold Cartridge Games</span>
+                                    </li>
+                                
+                                    <li>
+                                        <code>#franchise&gt;mario</code>
+                                        <span class="example-desc">Mario Games</span>
+                                    </li>
+                                
+                                    <li>
+                                        <code>#embedded:chips&gt;vrc6</code>
+                                        <span class="example-desc">VRC6 Enhanced</span>
+                                    </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener los datos de tags del backend
+        const tagsData = {"clone": {"type": "simple", "values": {"mario": "Mario clone", "sf2": "Street Fighter II clone", "sonic": "Sonic clone", "tetris": "Tetris clone"}}, "commercial": {"type": "simple", "values": {"franchise": "Popular franchise games", "lightgun": "Light gun games", "spinner": "Spinner controller games"}}, "display": {"subcategories": {"3d": {"values": {"anaglyph": "Anaglyph 3D", "stereoscopic": "Stereoscopic 3D"}}}, "type": "nested"}, "embedded": {"subcategories": {"chips": {"description": "Enhancement Chips", "values": {"5b": {"manufacturer": "Sunsoft", "name": "5B chip"}, "lockon": {"manufacturer": "SEGA", "name": "Lock-On Technology"}, "mmc5": {"manufacturer": "Nintendo", "name": "MMC5 chip"}, "n163": {"manufacturer": "NAMCO", "name": "163 chip"}, "svp": {"manufacturer": "SEGA", "name": "Virtua Processor"}, "vrc6": {"manufacturer": "Konami", "name": "VRC VI chip"}, "vrc7": {"manufacturer": "Konami", "name": "VRC VII chip"}}}, "hardware": {"description": "Special Hardware", "values": {"gbkiss": "GB Kiss", "jcart": "J-Cart", "kogame": "Kogame Cassette Slot", "led": "LED lights", "pocketsonar": "Pocket Sonar", "rj11": "RJ-11 port", "rtc": "Real-Time Clock chip", "smartmedia": "SmartMedia Double Slot"}}, "memory": {"description": "Memory \u0026 Storage", "values": {"battery": "Battery backup", "eeprom": "EEPROM", "feram": "Ferroelectric RAM", "flashram": "Flash RAM", "ram": "Extra RAM"}}}, "type": "nested"}, "format": {"subcategories": {"cartridge": {"description": "Cartridge Types", "values": {"goldcartridge": {"capacities": ["1m", "2m", "4m"], "name": "Gold Cartridge"}, "mycard": "SEGA My Card", "silvercartridge": "Silver Cartridge", "themegacartridge": "The Mega Cartridge (Japan)", "thesegacard": "The SEGA Card"}}}, "type": "nested"}, "franchise": {"description": "Commercial franchise tags", "type": "simple", "values": {"alien": "Alien franchise", "asterix": "Ast\u00e9rix \u0026 Ob\u00e9lix", "batman": "Batman", "castlevania": "Castlevania/\u60aa\u9b54\u57ce\u30c9\u30e9\u30ad\u30e5\u30e9", "compatihero": "Compati Hero", "disney": "Walt Disney", "dnd": "Dungeons \u0026 Dragons", "donald": "Donald Duck", "dracula": "Dracula", "dragonslayer": "Dragon Slayer", "gundam": "Gundam", "jurassicpark": "Jurassic Park", "kuniokun": "Kunio-kun/\u304f\u306b\u304a\u304f\u3093", "looneytunes": "Looney Tunes", "mario": "Mario", "marvel": "Marvel Comics", "mickey": "Mickey Mouse", "pacman": "Pac-Man", "sherlock": "Sherlock Holmes", "simpsons": "The Simpsons", "smurfs": "The Smurfs/Les Schtroumpfs", "sonic": "Sonic The Hedgehog", "spiderman": "Spider-Man", "starwars": "Star Wars", "superman": "Superman", "wonderboy": "Wonder Boy", "xmen": "X-Men"}}, "genre": {"subcategories": {"action": {"description": "Action game", "values": {}}, "adventure": {"description": "Adventure game", "values": {"dungeoncrawler": "Dungeon crawler", "hackandslash": "Hack and slash", "pointandclick": "Point and click", "runandgun": "Run and gun", "shooter": "Shooter", "shooting": "Shooting gallery", "survivalhorror": "Survival Horror"}}, "arcade": {"description": "Arcade game", "values": {"bowling": "Bowling", "darts": "Darts", "jackpot": "Jackpot", "kiddieride": "Kiddie ride", "pachinko": "Pachinko", "pinball": "Pinball"}}, "board": {"description": "Board game", "values": {"chess": "Chess", "go": "Go", "mahjong": "Mahjong", "othello": "Othello", "reversi": "Reversi", "shougi": "Sh\u014dgi"}}, "brawler": {"description": "Beat\u0027em up game", "values": {}}, "fighting": {"description": "Fighting game", "values": {}}, "other": {"description": "Other game", "values": {"billiard": "Billiard", "building": "Building", "cardgame": "Card game", "cards": "Classic cards", "cooking": "Cooking", "derby": "Derby", "fishing": "Fishing", "god": "God game", "hanafuda": "Hanafuda", "jankenpon": "Rock paper scissors", "minigames": "Mini games", "mogurataiji": "Whac-A-Mole", "quiz": "Quiz game", "visualnovel": "Visual novel"}}, "platformer": {"description": "Platformer game", "values": {}}, "puzzle": {"description": "Puzzle game", "values": {"drop": "Drop pieces puzzle"}}, "racing": {"description": "Racing game", "values": {"combat": "Combat racing"}}, "rhythm": {"description": "Rhythm game", "values": {}}, "rpg": {"description": "Role-playing game", "values": {"a": "Action RPG", "j": "JRPG", "s": "Strategy RPG"}}, "shmup": {"description": "Shoot\u0027em up game", "values": {"danmaku": "Bullet hell", "h": "Horizontal", "i": "Isometric", "v": "Vertical"}}, "shooter": {"description": "Shooter game", "values": {"3p": "Third person"}}, "sim": {"description": "Simulation game", "values": {"datesim": "Date simulator", "farmsim": "Farm simulator", "flightsim": "Flight simulator", "lifesim": "Life simulator", "petsim": "Pet simulator", "trainsim": "Train simulator"}}, "sports": {"description": "Sports game", "values": {"archery": "Archery", "badminton": "Badminton", "baseball": "Baseball", "basketball": "Basketball", "boxing": "Boxing", "cricket": "Cricket", "cycling": "Cycling", "decathlon": "Decathlon", "dodgeball": "Dodgeball", "football": "American football", "formula1": "Formula 1", "golf": "Golf", "hockey": "Ice Hockey", "judo": "Judo", "karate": "Karate", "kayak": "Kayak", "kendo": "Kendo", "kickboxing": "Kick Boxing", "motocross": "Motocross", "motogp": "Moto GP", "nascar": "NASCAR", "paddle": "Paddle", "pingpong": "Ping Pong", "rally": "Rally", "rowing": "Rowing", "rugby": "Rugby", "skateboarding": "Skateboarding", "skiing": "Skiing", "snowboarding": "Snowboarding", "soccer": "Soccer", "squash": "Squash", "sumo": "Sumo", "swimming": "Swimming", "tennis": "Tennis", "volleyball": "Volleyball", "wrestling": "Wrestling"}}}, "type": "nested"}, "input": {"subcategories": {"buttons": {"description": "Action buttons", "values": {"1": "1 button", "2": "2 buttons", "3": "3 buttons", "4": "4 buttons", "5": "5 buttons", "6": "6 buttons", "pneumatic": "Pneumatic buttons"}}, "doublejoystick": {"description": "Dual joystick setup", "values": {"2h": "2-way horizontal", "2v": "2-way vertical", "3": "3-way", "4": "4-way", "8": "8-way"}}, "joystick": {"description": "Joystick input", "values": {"2h": "2-way horizontal", "2v": "2-way vertical", "3": "3-way", "4": "4-way", "8": "8-way"}}, "keys": {"description": "Keyboard keys", "values": {"1": "1 key", "2": "2 keys", "3": "3 keys", "4": "4 keys", "5": "5 keys", "6": "6 keys"}}, "pedals": {"description": "Foot pedals", "values": {"1": "1 pedal", "2": "2 pedals", "3": "3 pedals", "4": "4 pedals", "5": "5 pedals", "6": "6 pedals"}}}, "type": "nested"}, "multigame": {"subcategories": {"compilation": {"description": "Game collections", "values": {"official": "Official compilation"}}}, "type": "nested"}, "search": {"description": "Keyword search tags", "tag_structure": {"main": "#", "sub": ":", "symbols": null, "value": "\u003e"}, "type": "simple", "values": {"lightgun": "Light gun games", "spinner": "Spinner controller games"}}, "standalone": {"type": "simple", "values": {"bios": "BIOS game", "mameparent": "MAME parent file", "promo": "Promotion product", "qsound": "QSound"}}, "status": {"subcategories": {"rev": {"description": "Revision", "values": {"1": "Revision 1", "2": "Revision 2", "a": "Revision A", "b": "Revision B", "c": "Revision C", "g": "Revision G"}}, "set": {"description": "Set number", "values": {"1": "Set 1", "2": "Set 2"}}, "unfinished": {"description": "Unfinished game", "values": {"beta": "Beta version", "competition": "Competition", "debug": "Debug", "demo": "Demo version", "proto": "Prototype", "sample": "Sample"}}}, "type": "nested"}, "system_variants": {"subcategories": {"gb": {"values": {"color": "Color", "mono": "Monochrome", "np": "Nintendo Power Cart", "sgb": "Super GameBoy"}}, "ngp": {"values": {"color": "Color", "mono": "Monochrome"}}, "pce": {"values": {"pcsg": "PC SuperGrafx"}}, "sg1000": {"values": {"othello": "Othello Multivision", "sc3000": "SEGA SC-3000"}}}, "type": "nested"}, "unlicensed": {"subcategories": {"aftermarket": {"description": "Made after original market cycle", "values": {}}, "bootleg": {"description": "Bootleg/pirated game", "values": {}}, "hack": {"description": "Hacked game", "values": {}}, "translation": {"description": "Fan translation", "values": {}}}, "type": "nested"}};
+    </script>
+    <script src="GameDataBase/js/main.js"></script>
+</body>
+</html>
