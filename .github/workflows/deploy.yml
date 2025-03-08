@@ -1,11 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
   workflow_dispatch:
-  pull_request:
-    types: [ opened, reopened, synchronize, edited ]
+#  pull_request:
+#    types: [ opened, reopened, synchronize, edited ]
  
 permissions:
   contents: read
