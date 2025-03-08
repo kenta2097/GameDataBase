@@ -52,7 +52,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './tag-generator2/build'
+          path: './src/tag-generator2/build'
 
   deploy:
     needs: build
