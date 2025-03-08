@@ -31,8 +31,9 @@ function App() {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('');
 
   useEffect(() => {
-    // Changed for debugging load process
-    fetch('/tags.yml')
+    // Usar la ruta base correcta para GitHub Pages
+    const basePath = process.env.PUBLIC_URL || '';
+    fetch(`${basePath}/tags.yml`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -40,13 +41,13 @@ function App() {
         return response.text();
       })
       .then(text => {
-        console.log('YAML text loaded:', text.substring(0, 100)); // Show first 100 characters
+        console.log('YAML text loaded:', text.substring(0, 100));
         const data = yaml.load(text) as Record<string, TagData>;
-        console.log('Parsed data:', data);
         setTagsData(data);
       })
       .catch(error => {
-        console.error('Detailed error:', error);
+        console.error('Error loading tags.yml:', error);
+        console.error('Current PUBLIC_URL:', process.env.PUBLIC_URL);
         alert('Error loading categories. Please check the console for details.');
       });
   }, []);

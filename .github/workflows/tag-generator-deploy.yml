@@ -34,7 +34,9 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
+        run: |
+          npm run build
+          cp public/tags.yml build/
         env:
           PUBLIC_URL: /GameDataBase
 
