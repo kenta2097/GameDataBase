@@ -28,21 +28,45 @@ jobs:
         with:
           node-version: '20.18.3'
 
-      - name: Generate package-lock.json
-        run: |
-          rm -f package-lock.json
-          npm install
-          git status
+      # Optimizado el caché de dependencias
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        id: npm-cache
+        with:
+          path: |
+            **/node_modules
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
+      # Instalación optimizada de dependencias
       - name: Install dependencies
-        run: npm ci
-        
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm ci --prefer-offline --no-audit --no-optional
+
+      # Build optimizado
       - name: Build project
         run: |
-          npm run build
+          # Limpiar caché y directorios antiguos
+          rm -rf build
+          npm cache verify
+          
+          # Construir con optimizaciones
+          NODE_ENV=production npm run build
+          
+          # Copiar archivos necesarios y optimizar
           cp public/tags.yml build/
+          
+          # Comprimir archivos estáticos
+          find build -type f -name "*.js" -exec gzip -k {} \;
+          find build -type f -name "*.css" -exec gzip -k {} \;
+          find build -type f -name "*.html" -exec gzip -k {} \;
         env:
           PUBLIC_URL: /GameDataBase
+          CI: true
+          GENERATE_SOURCEMAP: false
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

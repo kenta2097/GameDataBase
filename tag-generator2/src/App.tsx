@@ -263,8 +263,8 @@ function App() {
   return (
     <div className="app">
       <div className="header">
-        <h2 className="app-title">GAMEDATABASE</h2>
-        <h1>Tag Generator</h1>
+        <h1 className="app-title">GAMEDATABASE</h1>
+        <h3>Tag Generator</h3>
       </div>
 
       <div className="category-section">
