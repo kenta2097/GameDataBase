@@ -28,41 +28,25 @@ jobs:
         with:
           node-version: '20.18.3'
 
-      # Optimizado el caché de dependencias
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        id: npm-cache
-        with:
-          path: |
-            **/node_modules
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
+      # Generate package-lock.json efficiently
+      - name: Generate package-lock.json
+        run: |
+          # Remove existing lock file if exists
+          rm -f package-lock.json
+          # Install only prod dependencies to generate a clean lock file
+          npm i --package-lock-only --ignore-scripts --no-audit
+          # Verify lock file was created
+          test -f package-lock.json || exit 1
 
-      # Instalación optimizada de dependencias
+      # Install dependencies using the generated lock file
       - name: Install dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci --prefer-offline --no-audit --no-optional
+        run: npm ci --prefer-offline --no-audit
 
-      # Build optimizado
+      # Build and optimize
       - name: Build project
         run: |
-          # Limpiar caché y directorios antiguos
-          rm -rf build
-          npm cache verify
-          
-          # Construir con optimizaciones
           NODE_ENV=production npm run build
-          
-          # Copiar archivos necesarios y optimizar
           cp public/tags.yml build/
-          
-          # Comprimir archivos estáticos
-          find build -type f -name "*.js" -exec gzip -k {} \;
-          find build -type f -name "*.css" -exec gzip -k {} \;
-          find build -type f -name "*.html" -exec gzip -k {} \;
         env:
           PUBLIC_URL: /GameDataBase
           CI: true
