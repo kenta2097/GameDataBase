@@ -262,7 +262,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Tag Generator</h1>
+      <div className="header">
+        <h2 className="app-title">GAMEDATABASE</h2>
+        <h1>Tag Generator</h1>
+      </div>
 
       <div className="category-section">
         <h3>Select Tags</h3>
