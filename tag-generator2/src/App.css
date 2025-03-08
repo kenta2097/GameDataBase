@@ -1,15 +1,84 @@
+:root {
+  --primary-color: #2196F3;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --border-color: #dee2e6;
+  --hover-color: #e9ecef;
+  --success-color: #4CAF50;
+  --warning-color: #fff3cd;
+  --warning-text: #856404;
+  --secondary-text: #6c757d;
+}
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Estilo mejorado para el título */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 3rem 0;
+  text-align: center;
+  position: relative;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(120deg, transparent, var(--primary-color) 50%, transparent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  border-radius: 2px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, 
+      transparent,
+      var(--primary-color) 20%,
+      #64B5F6 50%,
+      var(--primary-color) 80%,
+      transparent
+  );
+  border-radius: 2px;
+}
+
 .app {
   max-width: 1200px;
+  width: 95%;
   margin: 20px auto;
-  padding: 20px;
+  padding: 15px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #333;
 }
 
 .selectors-container {
@@ -53,18 +122,19 @@ h1 {
 
 .dropdown-group {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin-bottom: 10px;
 }
 
 select {
-  flex: 1;
-  padding: 8px;
+  width: 100%;
+  padding: 12px;
   border: 1px solid #ced4da;
   border-radius: 4px;
   background-color: white;
-  font-size: 14px;
-  min-width: 200px;
+  font-size: 16px;
+  min-width: unset;
 }
 
 .selected-tags {
@@ -78,17 +148,19 @@ select {
 .tags-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  padding: 5px;
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
   background: #e9ecef;
-  padding: 5px 10px;
-  margin: 3px;
+  padding: 8px;
+  margin: 2px;
   border-radius: 3px;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .tag button {
@@ -164,10 +236,10 @@ select {
 
 .highlighted-output {
   min-height: 50px;
-  padding: 15px;
+  padding: 12px;
   margin-bottom: 10px;
   font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
@@ -175,6 +247,7 @@ select {
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  overflow-x: auto;
 }
 
 button {
@@ -191,15 +264,66 @@ button:hover {
 }
 
 .copy-btn {
-  background-color: #28a745;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 12px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.2s;
 }
 
 .copy-btn:hover {
-  background-color: #218838;
+  background-color: #1976D2;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .app {
+    padding: 20px;
+  }
+
+  .dropdown-group {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  select {
+    min-width: 200px;
+    font-size: 14px;
+  }
+
+  .copy-btn {
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .tag {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .highlighted-output {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
 }
