@@ -15,9 +15,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-defaults:
-    run:
-       working-directory: ./src/tag-generator2
+    
+    defaults:
+      run:
+        working-directory: ./src/tag-generator2
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,34 +28,23 @@ defaults:
         with:
           node-version: '20.18.3'
 
-            # Generate package-lock.json efficiently
       - name: Generate package-lock.json
-        working-directory: ./tag-generator2
         run: |
-# Remove existing lock file if exists
           rm -f package-lock.json
-# Install only prod dependencies to generate a clean lock file
           npm i --package-lock-only --ignore-scripts --no-audit
-            # Verify lock file was created
-
-# Verify lock file was created
           test -f package-lock.json || exit 1
 
-      # Install dependencies using the generated lock file
       - name: Install dependencies
-        working-directory: ./src/tag-generator2
         run: npm ci --prefer-offline --no-audit
 
-      # Build and optimize
       - name: Build project
-        working-directory: ./src/tag-generator2
-        run: |
-          NODE_ENV=production npm run build
-          cp public/tags.yml build/
         env:
           PUBLIC_URL: /GameDataBase
           CI: true
           GENERATE_SOURCEMAP: false
+        run: |
+          NODE_ENV=production npm run build
+          cp public/tags.yml build/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
