@@ -9,18 +9,27 @@ const gameService = new GameService();
 
 export const RetroSeek: React.FC = () => {
     const [games, setGames] = useState<Game[]>([]);
+    const [darkMode, setDarkMode] = useState<boolean>(false);
 
     const handleSearch = async (criteria: any) => {
         const results = await gameService.searchGames(criteria);
         setGames(results);
     };
 
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        document.body.classList.toggle('dark-mode', !darkMode);
+    };
+
     return (
-        <div className="retroseek">
+        <div className={`retroseek ${darkMode ? 'dark-mode' : ''}`}>
             <h1>RetroSeek</h1>
             <SearchForm onSearch={handleSearch} />
             <footer>
                 <p>by kenta2097 designed with Copilot</p>
+                <button onClick={toggleDarkMode} className="dark-mode-toggle">
+                    {darkMode ? 'Light Mode' : 'Dark Mode'}
+                </button>
             </footer>
         </div>
     );
