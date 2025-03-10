@@ -43,10 +43,10 @@ jobs:
           CI: true
           GENERATE_SOURCEMAP: false
         run: |
-          NODE_ENV=production npm run build -- --out-dir ./build  # Ensure build output directory is correct
+          NODE_ENV=production npm run build
 
       - name: List files in build directory
-        run: ls -la ./build
+        run: ls -la ./src/retroseek
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
