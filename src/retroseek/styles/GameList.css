@@ -108,7 +108,7 @@
 }
 
 .game-table th {
-    background: var(--accent-color);
+    background: var(--primary-color);
     color: var(--background-color);
     padding: 1rem;
     text-align: left;
@@ -116,8 +116,8 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    background-color: #f2f2f2;
-    text-align: left;
+    background-color: grey;
+    color: white;
 }
 
 .game-table td {
@@ -172,10 +172,10 @@
 }
 
 :root {
-    --background-color: #1a1a1a;
-    --text-color: #e1e1e1;
-    --accent-color: #646cff;
-    --border-color: #333;
-    --hover-color: #2a2a2a;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --accent-color: #007bff;
+    --border-color: #ddd;
+    --hover-color: #e0e0e0;
     --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
