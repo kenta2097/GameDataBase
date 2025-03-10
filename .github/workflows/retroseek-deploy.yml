@@ -46,7 +46,7 @@ jobs:
           NODE_ENV=production npm run build
 
       - name: List files in build directory
-        run: ls -la ./src/retroseek
+        run: ls -la ./build && pwd
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -54,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'
+          path: './src/retroseek/build'
 
   deploy:
     needs: build
