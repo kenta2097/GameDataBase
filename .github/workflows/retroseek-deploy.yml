@@ -43,7 +43,7 @@ jobs:
           CI: true
           GENERATE_SOURCEMAP: false
         run: |
-          NODE_ENV=production npm run build
+          NODE_ENV=production npm run build -- --out-dir ./build  # Define el directorio destino del build
 
       - name: List files in build directory
         run: ls -la ./build && pwd
@@ -54,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './src/retroseek/build'
+          path: './build'  # Asegúrate de que el directorio destino del build es correcto
 
   deploy:
     needs: build
