@@ -52,10 +52,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        run: |
-          ls -la ./build
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'  # Corrected path to the build directory
+          path: './build'
 
   deploy:
     needs: build
