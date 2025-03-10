@@ -46,7 +46,7 @@ jobs:
           NODE_ENV=production npm run build -- --out-dir ./build  # Define el directorio destino del build
 
       - name: List files in build directory
-        run: ls -la ./build && pwd
+        run: ls -la . && pwd
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
