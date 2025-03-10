@@ -1,11 +1,11 @@
 name: Deploy RetroSeek to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
   workflow_dispatch:
-  pull_request:
-    types: [ opened, reopened, synchronize, edited ]
+  # pull_request:
+  #   types: [ opened, reopened, synchronize, edited ]
 
 permissions:
   contents: read
@@ -60,8 +60,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        run: |
-          ls -la ./build
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './build/'
 
@@ -80,4 +79,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          path: './src/retroseek/build'
+          path: './build'

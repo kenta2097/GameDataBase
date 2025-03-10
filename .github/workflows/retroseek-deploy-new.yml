@@ -1,0 +1,54 @@
+name: Deploy RetroSeek to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  pull_request:
+    types: [ opened, reopened, synchronize, edited ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.18.3'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./src/retroseek
+
+      - name: Build project
+        run: npm run build -- --out-dir ./build
+        env:
+          PUBLIC_URL: /GameDataBase
+          CI: true
+          GENERATE_SOURCEMAP: false
+        working-directory: ./src/retroseek
+
+      - name: Verify build output
+        run: |
+          if [ -d "./src/retroseek/build" ]; then
+            echo "Build directory exists and contains:"
+            ls -la ./src/retroseek/build
+          else
+            echo "Build directory does not exist."
+            exit 1
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/retroseek/build
