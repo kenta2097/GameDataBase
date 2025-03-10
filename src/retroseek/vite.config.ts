@@ -4,6 +4,10 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/GameDataBase/', // Asegúrate de que la base esté configurada correctamente para GitHub Pages
+  build: {
+    outDir: 'build', // Asegúrate de que el directorio de salida sea correcto
+  },
   server: {
     port: 5173,
     host: '0.0.0.0',
