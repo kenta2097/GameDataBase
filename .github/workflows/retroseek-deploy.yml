@@ -45,13 +45,16 @@ jobs:
         run: |
           NODE_ENV=production npm run build
 
+      - name: List files in build directory
+        run: ls -la ./build && pwd
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './src/retroseek/build'
+          path: './build'  # Asegúrate de que el directorio destino del build es correcto
 
   deploy:
     needs: build
@@ -61,6 +64,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          path: './build'
