@@ -43,7 +43,7 @@ jobs:
           CI: true
           GENERATE_SOURCEMAP: false
         run: |
-          NODE_ENV=production npm run build
+          NODE_ENV=production npm run build -- --out-dir ./build  # Establece la carpeta de ruta de construcción explícita
 
       - name: List files in build directory
         run: ls -la ./build && pwd
