@@ -51,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './src/retroseek/build'
+          path: './build'  # Corrected path to the build directory
 
   deploy:
     needs: build
