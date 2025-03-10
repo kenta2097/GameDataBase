@@ -52,7 +52,8 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        run: |
+          ls -la ./build
         with:
           path: './build'  # Corrected path to the build directory
 
