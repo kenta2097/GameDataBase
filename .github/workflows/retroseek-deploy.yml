@@ -45,8 +45,16 @@ jobs:
         run: |
           NODE_ENV=production npm run build -- --out-dir ./build  # Establece la carpeta de ruta de construcción explícita
 
-      - name: List files in build directory
-        run: ls -la ./build && pwd
+      - name: Verify artifact
+        run: |
+          if [ -d "./build" ]; then
+            echo "Build directory exists and contains:"
+            ls -la ./build
+          else
+            echo "Build directory does not exist."
+            exit 1
+          fi
+          pwd
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -56,7 +64,7 @@ jobs:
         with:
           path: './build/'
 
-  deploy:
+        deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
