@@ -43,7 +43,7 @@ jobs:
           CI: true
           GENERATE_SOURCEMAP: false
         run: |
-          NODE_ENV=production npm run build
+          NODE_ENV=production npm run build -- --out-dir ./build  # Ensure build output directory is correct
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -51,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './src/retroseek/build'
+          path: './build'  # Corrected path to the build directory
 
   deploy:
     needs: build
