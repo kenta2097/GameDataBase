@@ -11,7 +11,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html')
       },
-      external: ['/GameDataBase/main.tsx'] // Externaliza el módulo explícitamente
+      external: ['/main.tsx'] // Externaliza el módulo explícitamente
     }
   },
   server: {
