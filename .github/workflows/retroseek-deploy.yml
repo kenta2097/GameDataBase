@@ -45,6 +45,9 @@ jobs:
         run: |
           NODE_ENV=production npm run build -- --out-dir ./build  # Ensure build output directory is correct
 
+      - name: List files in build directory
+        run: ls -la ./build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
