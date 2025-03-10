@@ -54,7 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'  # Asegúrate de que el directorio destino del build es correcto
+          path: './build/'
 
   deploy:
     needs: build
@@ -71,4 +71,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          path: './build'
+          path: 'build/'
