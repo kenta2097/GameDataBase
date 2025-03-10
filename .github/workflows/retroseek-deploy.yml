@@ -43,18 +43,15 @@ jobs:
           CI: true
           GENERATE_SOURCEMAP: false
         run: |
-          NODE_ENV=production npm run build -- --out-dir ./build  # Define el directorio destino del build
-
-      - name: List files in build directory
-        run: ls -la ./build && pwd
+          NODE_ENV=production npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'  # Asegúrate de que el directorio destino del build es correcto
+          path: './src/retroseek/build'
 
   deploy:
     needs: build
@@ -64,11 +61,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          path: './build'
