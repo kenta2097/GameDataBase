@@ -52,8 +52,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        run: |
-          ls -la ./build
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './build'  # Asegúrate de que el directorio destino del build es correcto
 
@@ -72,4 +71,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          path: './src/retroseek/build'
+          path: './build'
