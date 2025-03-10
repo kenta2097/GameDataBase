@@ -19,6 +19,9 @@ export const RetroSeek: React.FC = () => {
         <div className="retroseek">
             <h1>RetroSeek</h1>
             <SearchForm onSearch={handleSearch} />
+            <footer>
+                <p>by kenta2097 designed with Copilot</p>
+            </footer>
         </div>
     );
 };

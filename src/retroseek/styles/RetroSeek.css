@@ -25,6 +25,15 @@
     margin-bottom: 1.5rem;
 }
 
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.7em;
+    color: #888; /* Usa un gris desvanecido */
+    border-top: 1px solid #ddd; /* Añade una línea superior */
+    padding-top: 1rem; /* Añade un relleno superior */
+}
+
 @media (max-width: 768px) {
     .retroseek {
         padding: 1rem;
