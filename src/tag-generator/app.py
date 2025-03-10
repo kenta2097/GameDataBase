@@ -3,22 +3,41 @@ import yaml
 from jinja2 import StrictUndefined
 import os
 
-app = Flask(__name__, 
-           static_url_path='/static',  # Cambiado
-           static_folder='static')     # Explícitamente definido
-app.secret_key = 'gamedatabase_secret_key'  # Required for flash messages
-
-# Configuración para GitHub Pages
-app.config['APPLICATION_ROOT'] = '/GameDataBase'
-app.config['PREFERRED_URL_SCHEME'] = 'https'
-
-# Configurar las rutas de los directorios
+# Definir rutas de archivos y directorios
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-CONFIG_FILE = os.path.join(BASE_DIR, 'tags.yml')
 
-# Modificar la función helper
+def get_config_file():
+    # Buscar el archivo en la raíz primero
+    root_config = os.path.join(BASE_DIR, 'tags.yml')
+    if os.path.exists(root_config):
+        return root_config
+    
+    # Si no está en la raíz, buscar en el directorio actual
+    local_config = os.path.join(os.path.dirname(__file__), 'tags.yml')
+    if os.path.exists(local_config):
+        return local_config
+    
+    return root_config  # Devolver la ruta raíz por defecto
+
+CONFIG_FILE = get_config_file()
+
+app = Flask(__name__, 
+           static_url_path='/static',  # Añadido slash inicial
+           static_folder='static')
+app.secret_key = 'gamedatabase_secret_key'
+
+# Actualizar configuración
+app.config.update(
+    FREEZER_RELATIVE_URLS=False,  # Cambiado a False
+    FREEZER_DESTINATION='build',
+    FREEZER_BASE_URL='http://localhost:5000'  # URL base para generación
+)
+
+# Función helper corregida para URLs estáticas
 def static_url(filename):
-    return url_for('static', filename=filename, _external=True)
+    if not filename:
+        return ''
+    return url_for('static', filename=filename)
 
 # Hacer la función disponible en las plantillas
 app.jinja_env.globals.update(static_url=static_url)
@@ -44,6 +63,9 @@ def convert_keys_to_str(data):
 
 def load_tags():
     try:
+        if not os.path.exists(CONFIG_FILE):
+            raise FileNotFoundError(f"No tags.yml found in {CONFIG_FILE}")
+                
         with open(CONFIG_FILE, 'r', encoding='utf-8') as file:
             data = yaml.safe_load(file)
             # Convert numeric keys to strings in the entire data structure
@@ -119,4 +141,5 @@ def generate():
                          has_tags=bool(selected_tags))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
