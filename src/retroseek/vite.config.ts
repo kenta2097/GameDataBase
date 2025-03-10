@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Asegúrate de que la base esté configurada correctamente para GitHub Pages
+  base: '/GameDataBase/', // Asegúrate de que la base esté configurada correctamente para GitHub Pages
   build: {
     outDir: 'build', // Asegúrate de que el directorio de salida sea correcto
     rollupOptions: {
