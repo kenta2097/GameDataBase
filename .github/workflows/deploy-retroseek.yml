@@ -3,9 +3,15 @@ name: Deploy RetroSeek to GitHub Pages
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'src/retroseek/**'
+      - 'tags.yml'
   workflow_dispatch:
   pull_request:
     types: [ opened, reopened, synchronize, edited ]
+    paths:
+      - 'src/retroseek/**'
+      - 'tags.yml'
 
 permissions:
   contents: read
