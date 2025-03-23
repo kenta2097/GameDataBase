@@ -65,10 +65,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: ${{ github.event_name == 'pull_request' && 'preview' || 'github-pages' }}
+      url: ${{ github.event_name == 'pull_request' && format('https://preview-{0}--{1}.github.io/GameDataBase', github.event.pull_request.number, github.repository) || steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          branch: ${{ github.event_name == 'pull_request' && 'preview' || 'gh-pages' }}
